@@ -1,0 +1,165 @@
+:root {
+  --pink-bg: #ff0ea5;
+  --card-green: #c3fbb2;
+  --accent-pink: #ff1fac;
+  --titlebar-blue: #002bca;
+  --font-body: 'Pretendard', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #1a0033;
+  overflow-x: hidden;
+}
+
+.stage {
+  position: relative;
+  width: 1920px;
+  height: 1079px;
+  background: var(--pink-bg);
+  overflow: hidden;
+  font-family: var(--font-body);
+  transform-origin: top left;
+}
+
+/* ---------- 배경 패턴 ---------- */
+.bg-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('images/bg.png');
+  background-repeat: repeat;
+  background-position: -91.4px -1236.77px;
+}
+
+/* ---------- 신청완료 팝업 ---------- */
+.popup {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 522px;
+  height: 794px;
+  background: var(--card-green);
+  border: 0.5px solid #000;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.popup-titlebar {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 502px;
+  height: 33px;
+  background: var(--titlebar-blue);
+}
+
+.popup-close {
+  position: absolute;
+  left: 476.5px;
+  top: 15.5px;
+  width: 25px;
+  height: 21px;
+  cursor: pointer;
+  display: block;
+}
+
+.popup-close img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.popup-badge {
+  position: absolute;
+  left: 50%;
+  top: 62.5px;
+  transform: translateX(-50%);
+  width: 144.5px;
+  height: 81.835px;
+}
+
+.popup-title {
+  position: absolute;
+  left: 50%;
+  top: 219.5px;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 48px;
+  color: var(--pink-bg);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.popup-body {
+  position: absolute;
+  left: 50%;
+  top: 373.5px;
+  transform: translate(-50%, -50%);
+  width: 467px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000;
+  text-align: center;
+}
+
+.popup-body p {
+  margin: 0;
+}
+
+.popup-agent {
+  position: absolute;
+  left: 50%;
+  top: 724.5px;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 20px;
+  color: #000;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.popup-photo-frame {
+  position: absolute;
+  left: 172px;
+  top: 503.5px;
+  width: 172.71px;
+  height: 204px;
+  background: #fff;
+  border: 0.7px solid #000;
+}
+
+.popup-photo {
+  position: absolute;
+  left: 3.17px;
+  top: 3.75px;
+  width: 166.36px;
+  height: 196.5px;
+  overflow: hidden;
+  background: #ffcbec;
+}
+
+.popup-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
