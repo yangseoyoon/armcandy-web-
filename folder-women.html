@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>여성 교정의 역사 | ARM CANDY PROGRAM</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+
+    <link rel="stylesheet" href="folder-women.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <!-- 캐비닛 배경 -->
+      <div class="cabinet-bg" aria-hidden="true">
+        <img src="images/folder-women/cabinet-bg.png" alt="" />
+      </div>
+
+      <!-- 어둠 효과 (클릭 시 서랍 닫고 돌아가기) -->
+      <a class="dark-overlay" href="cabinet-women.html" aria-label="닫기"></a>
+
+      <!-- 파일철 뒷면 -->
+      <div class="folder-back" aria-hidden="true">
+        <img src="images/folder-women/folder-back.png" alt="" />
+      </div>
+
+      <!-- 인덱스 탭 이미지 4개 (전부 동일 크기/위치, 장식용이라 클릭 안 됨) -->
+      <div class="index-tab index-tab--punishment" aria-hidden="true">
+        <img src="images/folder-women/tab-punishment.png?v=2" alt="" />
+      </div>
+      <div class="index-tab index-tab--drugchem" aria-hidden="true">
+        <img src="images/folder-women/tab-drug-chem.png?v=2" alt="" />
+      </div>
+      <div class="index-tab index-tab--medical" aria-hidden="true">
+        <img src="images/folder-women/tab-medical.png?v=2" alt="" />
+      </div>
+      <div class="index-tab index-tab--bodymod" aria-hidden="true">
+        <img src="images/folder-women/tab-body-mod.png?v=2" alt="" />
+      </div>
+
+      <!-- 인덱스 라벨 4개: 실제 클릭 영역은 이 텍스트들이며, 항상 탭 이미지들 위(맨 위) 레이어에 위치 -->
+      <a
+        class="index-label index-label--punishment"
+        href="folder-women-punishment.html"
+      >
+        <span>처벌 · 강제</span>
+      </a>
+      <a
+        class="index-label index-label--drugchem"
+        href="folder-women-drugchem.html"
+      >
+        <span>약물 · 화학적 통제</span>
+      </a>
+      <a
+        class="index-label index-label--medical"
+        href="folder-women-medical.html"
+      >
+        <span>의학적 치료</span>
+      </a>
+      <a
+        class="index-label index-label--bodymod"
+        href="folder-women-bodymod.html"
+      >
+        <span>신체 변형</span>
+      </a>
+
+      <!-- 스탬프 -->
+      <div class="stamp" aria-hidden="true">
+        <img src="images/folder-women/stamp.png" alt="" />
+      </div>
+
+      <!-- 파일철 앞면 -->
+      <div class="folder-front" aria-hidden="true">
+        <img src="images/folder-women/folder-front.png" alt="" />
+      </div>
+    </div>
+
+    <script src="folder-scale.js"></script>
+  </body>
+</html>

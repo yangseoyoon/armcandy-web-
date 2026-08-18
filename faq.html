@@ -36,15 +36,16 @@
           <img class="nav-logo" src="images/apply/logo.png" alt="ARM CANDY PROGRAM" />
           <div class="nav-tabs">
             <a class="nav-tab" href="#">ABOUT</a>
-            <a class="nav-tab" href="#">FAQs</a>
-            <a class="nav-tab" href="#">PROGRAM</a>
-            <a class="nav-tab" href="#">SHOP</a>
+            <a class="nav-tab" href="faq.html">FAQs</a>
+            <a class="nav-tab" href="apply.html">PROGRAM</a>
+            <a class="nav-tab" href="shop.html">SHOP</a>
           </div>
         </nav>
 
         <div class="nav-dropdown">
           <div class="nav-dropdown-col nav-dropdown-col--about">
             <a href="#">ARM CANDY PROGRAM</a>
+            <a href="#" class="intranet-trigger">██ ███ █████</a>
           </div>
           <div class="nav-dropdown-col nav-dropdown-col--faqs">
             <a href="faq.html">자주 묻는 질문과 답변</a>
@@ -149,9 +150,18 @@
       </div>
 
       <img class="mascot" src="images/faq/mascot.png" alt="" aria-hidden="true" />
+    </div>
 
+    <!-- 인트라넷 접속 안내 팝업: .stage 바깥(뷰포트 기준 고정)에 둬야 긴 페이지에서도 항상 화면 중앙에 뜬다 -->
+    <div class="intranet-modal" aria-hidden="true">
+      <div class="intranet-modal-box">
+        <p class="intranet-modal-text">인트라넷에 접속하시겠습니까?</p>
+        <a class="intranet-modal-btn intranet-modal-btn--yes" href="intranet-loading.html">네</a>
+        <button type="button" class="intranet-modal-btn intranet-modal-btn--no">아니요</button>
+      </div>
     </div>
 
     <script src="faq.js"></script>
+    <script src="intranet-modal.js"></script>
   </body>
 </html>

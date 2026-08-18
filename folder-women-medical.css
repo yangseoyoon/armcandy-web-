@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.stage {
+  position: relative;
+  flex: none;
+  width: 1920px;
+  height: 1080px;
+  background: #fff;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+/* ---------- 캐비닛 배경 ---------- */
+.cabinet-bg {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 1960px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+.cabinet-bg img {
+  position: absolute;
+  left: 0;
+  top: -70.99%;
+  width: 100%;
+  height: 241.98%;
+  max-width: none;
+}
+
+/* ---------- 어둠 효과 ---------- */
+.dark-overlay {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1920px;
+  height: 1105.48px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- 열린 파일철 ---------- */
+.open-folder-bg {
+  position: absolute;
+  z-index: 2;
+  left: 206.05px;
+  top: -16.39px;
+  width: 1513.89px;
+  height: 1105.48px;
+}
+
+.open-folder-bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.paperclip {
+  position: absolute;
+  z-index: 5;
+  left: 1091.6px;
+  top: 61.98px;
+  width: 19.81px;
+  height: 72.17px;
+}
+
+/* ---------- 인덱스 탭 이미지 (오른쪽) ---------- */
+.index-tab {
+  position: absolute;
+  z-index: 3;
+  left: 989.29px;
+  top: 79.32px;
+  width: 648.22px;
+  height: 899.85px;
+  pointer-events: none;
+}
+
+.index-tab img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.index-tab--medical {
+  top: 81.18px;
+  width: 642.54px;
+  height: 896.15px;
+}
+
+/* 이미 지나온 챕터: 왼쪽으로 넘어가면서 좌우+상하 반전 */
+.index-tab--bodymod-left {
+  left: 291.78px;
+  top: 99.32px;
+  width: 648.22px;
+  height: 899.85px;
+  transform: scaleY(-1) rotate(180deg);
+}
+
+/* ---------- 인덱스 라벨 ---------- */
+.index-label {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.index-label span {
+  display: block;
+  transform: rotate(-90deg);
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #000;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.index-label:hover span {
+  color: #888;
+}
+
+/* 신체변형(첫 번째 열린 페이지)과 동일한 좌표로 통일 - 안 지나간 탭들은
+   페이지가 바뀌어도 위치가 흔들리면 안 되므로 그쪽 값을 기준으로 맞춘다. */
+/* 신체변형 페이지의 라벨은 padding 포함 구조(width 37.223)라 그것과 폭까지
+   맞춰야 텍스트 중심 X가 일치한다. */
+.index-label--punishment { left: 1594.33px; top: 852.34px; width: 37.223px; height: 106.32px; }
+.index-label--drugchem { left: 1594.33px; top: 708.19px; width: 37.223px; height: 126.457px; }
+.index-label--medical { left: 1594.33px; top: 581.15px; width: 37.223px; height: 109.449px; }
+
+/* 이 라벨은 이 페이지에만 있는 것이라 원본 그대로(width 17.223) 사용 */
+.index-label--bodymod-left { left: 307.74px; top: 493.19px; width: 17.223px; height: 57.708px; }

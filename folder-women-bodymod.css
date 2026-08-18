@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.stage {
+  position: relative;
+  flex: none;
+  width: 1920px;
+  height: 1080px;
+  background: #fff;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+/* ---------- 캐비닛 배경 ---------- */
+.cabinet-bg {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 1960px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+.cabinet-bg img {
+  position: absolute;
+  left: 0;
+  top: -70.99%;
+  width: 100%;
+  height: 241.98%;
+  max-width: none;
+}
+
+/* ---------- 어둠 효과 (열린 상태에서는 클릭 불가) ---------- */
+.dark-overlay {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1920px;
+  height: 1105.48px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- 열린 파일철 ---------- */
+/* .open-folder-wrap 자체는 좌표 기준점이 아니라 그냥 묶음 컨테이너.
+   모든 자식은 .stage 기준 절대좌표를 그대로 사용한다. */
+
+.open-folder-bg {
+  position: absolute;
+  z-index: 2;
+  left: 206.05px;
+  top: -16.39px;
+  width: 1513.89px;
+  height: 1105.48px;
+  display: block;
+  cursor: pointer;
+}
+
+.open-folder-bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.paperclip {
+  position: absolute;
+  z-index: 5;
+  left: 1091.6px;
+  top: 61.98px;
+  width: 19.81px;
+  height: 72.17px;
+}
+
+/* ---------- 인덱스 탭 이미지 ---------- */
+.index-tab {
+  position: absolute;
+  z-index: 3;
+  left: 989.29px;
+  top: 79.32px;
+  width: 648.22px;
+  height: 899.85px;
+  pointer-events: none;
+}
+
+.index-tab img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.index-tab--medical {
+  top: 81.18px;
+  width: 642.54px;
+  height: 896.15px;
+}
+
+/* ---------- 인덱스 라벨 ---------- */
+.index-label {
+  position: absolute;
+  z-index: 4;
+  left: 1594.33px;
+  width: 37.223px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.index-label span {
+  display: block;
+  transform: rotate(-90deg);
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #000;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.index-label:hover span {
+  color: #888;
+}
+
+.index-label--punishment { top: 852.34px; height: 106.32px; }
+.index-label--drugchem { top: 708.19px; height: 126.457px; }
+.index-label--medical { top: 581.15px; height: 109.449px; }
+.index-label--bodymod { top: 452.15px; height: 97.708px; }

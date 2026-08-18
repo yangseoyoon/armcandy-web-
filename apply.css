@@ -187,6 +187,10 @@ body {
   text-decoration: underline;
 }
 
+.intranet-trigger:hover {
+  text-underline-offset: 6px;
+}
+
 .nav-dropdown-col--about {
   left: 1071px;
 }
@@ -534,3 +538,62 @@ body {
   width: 87px;
   height: 49.27px;
 }
+
+/* ---------- 인트라넷 접속 안내 팝업 ---------- */
+.intranet-modal {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.intranet-modal.is-open {
+  display: flex;
+}
+
+.intranet-modal-box {
+  position: relative;
+  width: 793.1px;
+  height: 247.1px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.intranet-modal-text {
+  position: absolute;
+  left: 50%;
+  top: 78.4px;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 25.2px;
+  line-height: 21px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.intranet-modal-btn {
+  position: absolute;
+  top: 162.155px;
+  width: 127.4px;
+  height: 35px;
+  box-sizing: border-box;
+  background: #1b1b1b;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 22.4px;
+  line-height: 21px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.intranet-modal-btn--yes { left: 199.15px; }
+.intranet-modal-btn--no { left: 466.55px; }

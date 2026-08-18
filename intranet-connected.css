@@ -1,0 +1,199 @@
+/* 로딩 페이지 → 이 페이지 전환 시 150ms 디졸브(크로스페이드) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 150ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.stage {
+  position: relative;
+  flex: none;
+  width: 1920px;
+  height: 1080px;
+  background: #fff;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.door-bg {
+  position: absolute;
+  z-index: 0;
+  left: 0.5px;
+  top: 0;
+  width: 1919px;
+  height: 1080px;
+}
+
+.door-bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.connected-text {
+  position: absolute;
+  left: 50%;
+  top: 78.4px;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 25.2px;
+  line-height: 21px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.connected-confirm {
+  position: absolute;
+  left: 50%;
+  top: 162.155px;
+  transform: translateX(-50%);
+  width: 127.4px;
+  height: 35px;
+  box-sizing: border-box;
+  background: #1b1b1b;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 22.4px;
+  line-height: 21px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.exit-btn {
+  position: absolute;
+  z-index: 2;
+  left: 30.51px;
+  top: 947.4px;
+  width: 85.5px;
+  height: 102.6px;
+  background: #000;
+  border: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6px 19px 6px 4px;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.exit-btn:hover {
+  background: #fff;
+}
+
+.exit-btn img {
+  display: block;
+  width: 62.5px;
+  height: 90.85px;
+  transition: opacity 150ms ease;
+}
+
+.exit-btn img.exit-icon--hover {
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  opacity: 0;
+}
+
+.exit-btn img.exit-icon--default {
+  opacity: 1;
+}
+
+.exit-btn:hover img.exit-icon--default {
+  opacity: 0;
+}
+
+.exit-btn:hover img.exit-icon--hover {
+  opacity: 1;
+}
+
+/* ---------- EXIT 확인 팝업 (검정 팝업창 공통 규격 793.1x247.1px 재사용) ---------- */
+.intranet-modal {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.intranet-modal.is-open {
+  display: flex;
+}
+
+.intranet-modal-box {
+  position: relative;
+  width: 793.1px;
+  height: 247.1px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.intranet-modal-text {
+  position: absolute;
+  left: 50%;
+  top: 78.4px;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 25.2px;
+  line-height: 21px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.intranet-modal-btn {
+  position: absolute;
+  top: 162.155px;
+  width: 127.4px;
+  height: 35px;
+  box-sizing: border-box;
+  background: #1b1b1b;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: 22.4px;
+  line-height: 21px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.intranet-modal-btn--yes {
+  left: 199.15px;
+}
+.intranet-modal-btn--no {
+  left: 466.55px;
+}
