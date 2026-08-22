@@ -18,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 인트라넷 접속 페이지에서 EXIT 시 되돌아갈 원래 페이지를 기억해둔다.
   if (yesBtn) {
     yesBtn.addEventListener('click', () => {
-      sessionStorage.setItem('intranetEntryPage', location.pathname + location.search);
+      sessionStorage.setItem(
+        'intranetEntryPage',
+        location.pathname + location.search,
+      );
     });
   }
 });
