@@ -157,9 +157,32 @@
       >
         <img src="images/shop/product-belladonna.png" alt="벨라도나 안약" />
       </div>
+
+      <!-- 상품 상세 팝업: 페이지 자체 좌표계를 쓰므로 .stage 내부에 두어 나머지 콘텐츠와 함께 스케일된다 -->
+      <div class="product-modal-overlay" id="productModalOverlay" aria-hidden="true">
+        <div class="product-modal-box">
+          <div class="product-modal-topbar">
+            <span>AMPHETAPINE · <b>암페타민</b></span>
+          </div>
+          <div class="product-modal-photo">
+            <img src="images/shop/product-pills-pink.png" alt="암페타민" />
+          </div>
+          <p class="product-modal-title">AMPHETAMINE</p>
+          <p class="product-modal-subtitle">[암페타민]</p>
+          <div class="product-modal-desc">
+            <p>
+              강력한 중추신경계 각성제의 일종이다.<br />
+              기분을 좋게 하고 피로감을 줄이며 에너지가 상승하는 느낌을 준다. <br />
+              피로와 식욕을 감소시키고 뇌의 기민성을 높여 체중 감량의 효과가 있다.
+            </p>
+          </div>
+          <div class="product-modal-btn product-modal-btn--buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel">취소하기</a>
+        </div>
+      </div>
     </div>
 
-    <!-- 인트라넷 접속 안내 팝업: .stage 바깥(뷰포트 기준 고정)에 둬야 스케일과 무관하게 항상 화면 중앙에 뜬다 -->
+    <!-- 인트라넷 접속 안내 팝업: .stage 바깥(뷰포트 기준 고정)에 두어야 스케일과 무관하게 항상 화면 중앙에 뜬다 -->
     <div class="intranet-modal" aria-hidden="true">
       <div class="intranet-modal-box">
         <p class="intranet-modal-text">인트라넷에 접속하시겠습니까?</p>
@@ -176,5 +199,18 @@
 
     <script src="scale.js"></script>
     <script src="intranet-modal.js"></script>
+    <script>
+      const productModalOverlay = document.getElementById('productModalOverlay');
+
+      document.querySelector('.product--pills-pink').addEventListener('click', (e) => {
+        e.preventDefault();
+        productModalOverlay.classList.add('is-open');
+      });
+
+      document.querySelector('.product-modal-btn--cancel').addEventListener('click', (e) => {
+        e.preventDefault();
+        productModalOverlay.classList.remove('is-open');
+      });
+    </script>
   </body>
 </html>

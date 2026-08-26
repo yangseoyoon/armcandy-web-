@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -157,10 +158,83 @@ body {
 }
 
 /* 오른쪽 라벨: 고정 공용 좌표 (memory 참고) */
-.index-label--punishment { left: 1594.33px; top: 852.34px; width: 37.223px; height: 106.32px; }
+.index-label--punishment {
+  left: 1594.33px;
+  top: 852.34px;
+  width: 37.223px;
+  height: 106.32px;
+}
 
 /* 왼쪽으로 넘어간 라벨 3개 (신체변형·약물화학은 일반 회전, 의학적치료만 추가 상하반전) */
-.index-label--bodymod-left { left: 307.74px; top: 493.19px; width: 17.223px; height: 57.708px; }
-.index-label--medical-left { left: 307.74px; top: 622.19px; width: 17.223px; height: 69.449px; }
-.index-label--medical-left span { transform: rotate(-90deg) scaleY(-1); }
-.index-label--drugchem-left { left: 307.74px; top: 736.34px; width: 17.223px; height: 106.457px; }
+.index-label--bodymod-left {
+  left: 307.74px;
+  top: 493.19px;
+  width: 17.223px;
+  height: 57.708px;
+}
+.index-label--medical-left {
+  left: 307.74px;
+  top: 622.19px;
+  width: 17.223px;
+  height: 69.449px;
+}
+.index-label--drugchem-left {
+  left: 307.74px;
+  top: 736.34px;
+  width: 17.223px;
+  height: 106.457px;
+}
+
+/* ---------- 파일 카드: 잔소리꾼의 굴레 / 더킹 스툴 ----------
+코르셋/전족(folder-women-bodymod.css)과 동일한 방식: Figma에서 카드를
+2x로 통짜 내보내 하나의 이미지로 사용. 이 두 카드는 내보낸 PNG가
+노드 자체 크기(611x878 @1x)와 정확히 일치해서(그림자 여백 없음)
+clip-path 크롭이 필요 없다. clip-path와 filter(drop-shadow)를 같은요소에 걸면 일부 브라우저가 그림자까지 잘라버리는 문제가 있어
+   바깥 wrap에는 filter, 안쪽 img는 그대로 두는 구조만 재사용. */
+
+.file-card-flat-wrap {
+  position: absolute;
+  z-index: 4;
+  width: 611px;
+  height: 878px;
+  /* 파일철 위에 올라가는 모든 자료 카드의 고정 드롭섀도우 값 */
+  filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+
+.file-card-flat {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.file-card-flat-wrap--scoldsbridle {
+  left: 333px;
+  top: 113px;
+  transform: rotate(-2deg);
+}
+
+.file-card-flat-wrap--duckingstool {
+  left: 971px;
+  top: 84px;
+  transform: rotate(1deg);
+}
+
+/* 카드 이미지에 찍힌 "이전 장"/"다음 장" 글자 위에 얹는 투명 클릭 영역.
+   wrap이 이미 회전돼 있으므로 그 안의 로컬 좌표(카드 자체 기준)로 두면
+   회전과 함께 따라간다. */
+.page-turn {
+  position: absolute;
+  top: 838.5px;
+  width: 66px;
+  height: 40px;
+  pointer-events: auto;
+}
+
+.page-turn--prev {
+  left: 10px;
+}
+
+.page-turn--next {
+  left: 535px;
+}

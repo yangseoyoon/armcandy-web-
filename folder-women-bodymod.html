@@ -6,13 +6,15 @@
     <title>신체 변형 | ARM CANDY PROGRAM</title>
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
 
     <link rel="stylesheet" href="folder-women-bodymod.css" />
   </head>
   <body>
     <div class="stage">
-
       <!-- 캐비닛 배경 -->
       <div class="cabinet-bg" aria-hidden="true">
         <img src="images/folder-women-bodymod/cabinet-bg.png" alt="" />
@@ -27,11 +29,19 @@
           <img src="images/folder-women-bodymod/open-folder.png" alt="" />
         </a>
 
-        <img class="paperclip" src="images/folder-women-bodymod/paperclip.png" alt="" aria-hidden="true" />
+        <img
+          class="paperclip"
+          src="images/folder-women-bodymod/paperclip.png"
+          alt=""
+          aria-hidden="true"
+        />
 
         <!-- 인덱스 탭 이미지 4개 -->
         <div class="index-tab index-tab--punishment" aria-hidden="true">
-          <img src="images/folder-women-bodymod/tab-punishment.png?v=2" alt="" />
+          <img
+            src="images/folder-women-bodymod/tab-punishment.png?v=2"
+            alt=""
+          />
         </div>
         <div class="index-tab index-tab--drugchem" aria-hidden="true">
           <img src="images/folder-women-bodymod/tab-drug-chem.png?v=2" alt="" />
@@ -44,20 +54,50 @@
         </div>
 
         <!-- 인덱스 라벨 4개 -->
-        <a class="index-label index-label--punishment" href="folder-women-punishment.html">
+        <a
+          class="index-label index-label--punishment"
+          href="folder-women-punishment.html"
+        >
           <span>처벌 · 강제</span>
         </a>
-        <a class="index-label index-label--drugchem" href="folder-women-drugchem.html">
+        <a
+          class="index-label index-label--drugchem"
+          href="folder-women-drugchem.html"
+        >
           <span>약물 · 화학적 통제</span>
         </a>
-        <a class="index-label index-label--medical" href="folder-women-medical.html">
+        <a
+          class="index-label index-label--medical"
+          href="folder-women-medical.html"
+        >
           <span>의학적 치료</span>
         </a>
-        <a class="index-label index-label--bodymod index-label--active" href="folder-women-bodymod.html">
+        <a
+          class="index-label index-label--bodymod index-label--active"
+          href="folder-women-bodymod.html"
+        >
           <span>신체 변형</span>
         </a>
-      </div>
 
+        <!-- 파일 카드: 종이 코르셋 / 전족 (Figma에서 2x로 통짜 내보낸 이미지 사용)
+             clip-path와 filter(drop-shadow)를 같은 요소에 같이 걸면 일부
+             브라우저가 그림자까지 clip-path로 잘라버리는 문제가 있어서,
+             바깥 wrap에는 filter만, 안쪽 img에는 clip-path만 따로 둔다. -->
+        <div class="file-card-flat-wrap file-card-flat-wrap--corset">
+          <img
+            class="file-card-flat"
+            src="images/folder-women-bodymod/card-corset@2x.png"
+            alt="종이 코르셋 자료 카드"
+          />
+        </div>
+        <div class="file-card-flat-wrap file-card-flat-wrap--footbinding">
+          <img
+            class="file-card-flat"
+            src="images/folder-women-bodymod/card-footbinding@2x.png"
+            alt="전족 자료 카드"
+          />
+        </div>
+      </div>
     </div>
 
     <script src="folder-scale.js"></script>

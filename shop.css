@@ -304,6 +304,159 @@ body {
   object-fit: cover;
 }
 
+/* ---------- 상품 상세 팝업 ---------- */
+.product-modal-overlay {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.product-modal-overlay.is-open {
+  display: block;
+}
+
+.product-modal-box {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 0.5px);
+  transform: translate(-50%, -50%);
+  width: 1331px;
+  height: 870px;
+  background: linear-gradient(to bottom, var(--pink-top), var(--pink-bottom));
+  border: 3px solid var(--ticker-bg);
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.product-modal-topbar {
+  position: absolute;
+  left: -13px;
+  top: -5px;
+  width: 1341px;
+  height: 44px;
+  background: var(--ticker-bg);
+  overflow: hidden;
+}
+
+.product-modal-topbar span {
+  position: absolute;
+  left: 147.45px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-futura-demi);
+  font-size: 22px;
+  color: var(--card-green);
+  white-space: nowrap;
+}
+
+.product-modal-topbar span b {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.product-modal-photo {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 96.98px);
+  transform: translate(-50%, -50%);
+  width: 694.5px;
+  height: 364.03px;
+  overflow: hidden;
+}
+
+.product-modal-photo img {
+  position: absolute;
+  left: 0;
+  top: -45.02%;
+  width: 100%;
+  height: 194.69%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.product-modal-title {
+  position: absolute;
+  left: 50%;
+  top: 466.04px;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-futura-bold);
+  font-size: 40px;
+  color: #ffcb00;
+  text-shadow: 4px 4px 0 #000;
+  white-space: nowrap;
+}
+
+.product-modal-subtitle {
+  position: absolute;
+  left: 50%;
+  top: 517.04px;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffcb00;
+  text-shadow: 1.5px 1.5px 0 #000;
+  white-space: nowrap;
+}
+
+.product-modal-desc {
+  position: absolute;
+  left: 50%;
+  top: 571.03px;
+  transform: translateX(-50%);
+  width: 838px;
+  height: 166px;
+  background: var(--card-green);
+  overflow: hidden;
+}
+
+.product-modal-desc p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 821px;
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  line-height: 34px;
+  color: #000;
+  text-align: center;
+}
+
+.product-modal-btn {
+  position: absolute;
+  top: 747.03px;
+  width: 414px;
+  height: 51px;
+  box-sizing: border-box;
+  background: var(--ticker-bg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 26px;
+  color: var(--card-green);
+  filter: drop-shadow(1px 1px 0.5px rgba(0, 0, 0, 0.4));
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.product-modal-btn--buy {
+  left: 243.5px;
+}
+
+.product-modal-btn--cancel {
+  left: 668px;
+  cursor: pointer;
+}
+
 /* ---------- 인트라넷 접속 안내 팝업 ---------- */
 .intranet-modal {
   position: fixed;
