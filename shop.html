@@ -20,6 +20,7 @@
     />
 
     <link rel="stylesheet" href="shop.css" />
+    <link rel="stylesheet" href="crt-effect.css" />
   </head>
   <body>
     <div class="stage">
@@ -75,16 +76,16 @@
 
         <div class="nav-dropdown">
           <div class="nav-dropdown-col nav-dropdown-col--about">
-            <a href="#">ARM CANDY PROGRAM</a>
+            <a href="main.html">ARM CANDY PROGRAM</a>
             <a href="#" class="intranet-trigger">██ ███ █████</a>
           </div>
           <div class="nav-dropdown-col nav-dropdown-col--faqs">
             <a href="faq.html">자주 묻는 질문과 답변</a>
-            <a href="#">프로그램 후기</a>
+            <a href="review.html">프로그램 후기</a>
           </div>
           <div class="nav-dropdown-col nav-dropdown-col--program">
             <a href="apply.html">신청하기</a>
-            <a href="#">프로그램 구성품</a>
+            <a href="components.html">프로그램 구성품</a>
           </div>
         </div>
       </div>
@@ -163,6 +164,9 @@
         <div class="product-modal-box">
           <div class="product-modal-topbar">
             <span>AMPHETAPINE · <b>암페타민</b></span>
+            <button type="button" class="product-modal-close" aria-label="닫기">
+              <img src="images/shop/product-modal-close.svg" alt="" />
+            </button>
           </div>
           <div class="product-modal-photo">
             <img src="images/shop/product-pills-pink.png" alt="암페타민" />
@@ -170,10 +174,46 @@
           <p class="product-modal-title">AMPHETAMINE</p>
           <p class="product-modal-subtitle">[암페타민]</p>
           <div class="product-modal-desc">
-            <p>
+            <p class="product-modal-desc-front">
               강력한 중추신경계 각성제의 일종이다.<br />
               기분을 좋게 하고 피로감을 줄이며 에너지가 상승하는 느낌을 준다. <br />
               피로와 식욕을 감소시키고 뇌의 기민성을 높여 체중 감량의 효과가 있다.
+            </p>
+            <p class="product-modal-desc-back">
+              내성과 정신적인 의존성이 생기기 쉬우며 과다 복용 시 발기부전, 우울증의 가능성이 있다.<br />
+              심한 경우 급성 중독으로 사망에 이를 수도 있다. <br />
+              정신적으로 폭력성을 보이거나 판단력이 상실된 행복감을 느끼기도 한다.
+            </p>
+          </div>
+          <div class="product-modal-btn product-modal-btn--buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel">취소하기</a>
+        </div>
+      </div>
+
+      <!-- 상품 상세 팝업: 로보토미 -->
+      <div class="product-modal-overlay" id="productModalOverlay2" aria-hidden="true">
+        <div class="product-modal-box">
+          <div class="product-modal-topbar">
+            <span>LOBOTOMY · <b>로보토미</b></span>
+            <button type="button" class="product-modal-close" aria-label="닫기">
+              <img src="images/shop/product-modal-close.svg" alt="" />
+            </button>
+          </div>
+          <div class="product-modal-photo product-modal-photo--lobotomy">
+            <img src="images/shop/product-modal-brain.png" alt="로보토미" />
+          </div>
+          <p class="product-modal-title">LOBOTOMY</p>
+          <p class="product-modal-subtitle">[뇌엽절제술]</p>
+          <div class="product-modal-desc product-modal-desc--lobotomy">
+            <p class="product-modal-desc-front">
+              전두엽과 연결되는 뇌의 신경망을 끊는 '짧고 간단한' 수술이다. <br />
+              감정, 주도성, 독립적 판단 능력 등을 제거한다. <br />
+              극심한 불안, 우울증, 폭력성 치료에 효과적이며 순종적인 성격을 만들어 준다.
+            </p>
+            <p class="product-modal-desc-back">
+              전두엽을 손상시키기 때문에 사람의 인간성을 이루는 감정과 지적 능력이 상실된다.<br />
+              지능이 저하되어 어린아이처럼 변하거나 충동 조절의 어려움을 겪기도 한다. <br />
+              간헐적 발작이나 실금 등 신체적 합병증도 동반된다.
             </p>
           </div>
           <div class="product-modal-btn product-modal-btn--buy">구매하기</div>
@@ -197,19 +237,27 @@
       </div>
     </div>
 
+    <script src="crt-effect.js"></script>
     <script src="scale.js"></script>
+    <script src="tv-bezel.js"></script>
     <script src="intranet-modal.js"></script>
     <script>
-      const productModalOverlay = document.getElementById('productModalOverlay');
-
+      // 상품 클릭 -> 해당 상품의 상세 팝업 열기
       document.querySelector('.product--pills-pink').addEventListener('click', (e) => {
         e.preventDefault();
-        productModalOverlay.classList.add('is-open');
+        document.getElementById('productModalOverlay').classList.add('is-open');
+      });
+      document.querySelector('.product--brain').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('productModalOverlay2').classList.add('is-open');
       });
 
-      document.querySelector('.product-modal-btn--cancel').addEventListener('click', (e) => {
-        e.preventDefault();
-        productModalOverlay.classList.remove('is-open');
+      // 팝업 안의 취소/닫기(X) 버튼은 자신이 속한 팝업만 닫는다
+      document.querySelectorAll('.product-modal-btn--cancel, .product-modal-close').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          btn.closest('.product-modal-overlay').classList.remove('is-open');
+        });
       });
     </script>
   </body>

@@ -33,7 +33,7 @@ body {
 
 body {
   margin: 0;
-  background: #1a0033;
+  background: #000;
   overflow-x: hidden;
 }
 
@@ -542,7 +542,7 @@ body {
 /* ---------- 인트라넷 접속 안내 팝업 ---------- */
 .intranet-modal {
   position: fixed;
-  z-index: 999;
+  z-index: 10000;
   inset: 0;
   display: none;
   align-items: center;

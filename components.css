@@ -6,24 +6,9 @@
   --nav-bg: #e2fbb9;
   --nav-text: #ff11a6;
   --card-green: #c3fbb2;
-  --accent-pink: #ff1fac;
 
-  --font-futura-extrabold:
-    'Futura PT Extra Bold', 'Poppins', 'Century Gothic', 'Trebuchet MS',
-    sans-serif;
-  --font-futura-bold:
-    'Futura PT Bold', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
-  --font-futura-heavy:
-    'Futura PT Heavy', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
-  --font-futura-demi:
-    'Futura PT Demi', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
-  --font-futura-medium:
-    'Futura PT Medium', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
-  --font-futura-book:
-    'Futura PT Book', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
-  --font-futura-light:
-    'Futura PT Light', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
-
+  --font-futura-demi: 'Futura PT Demi', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
+  --font-futura-heavy: 'Futura PT Heavy', 'Poppins', 'Century Gothic', 'Trebuchet MS', sans-serif;
   --font-pixel: 'NeoDunggeunmo Pro', 'NeoDunggeunmoPro', monospace;
   --font-body: 'Pretendard', sans-serif;
 }
@@ -32,8 +17,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
 }
 
@@ -46,7 +30,7 @@ body {
 .stage {
   position: relative;
   width: 1920px;
-  height: 2986px;
+  height: 1079px;
   background: linear-gradient(to bottom, var(--pink-top), var(--pink-bottom));
   overflow: hidden;
   font-family: var(--font-body);
@@ -60,7 +44,77 @@ body {
   z-index: 0;
   background-image: url('images/bg.png');
   background-repeat: repeat;
-  background-position: -91.4px -1236.77px;
+  background-position: -57.4px -1333.27px;
+}
+
+/* ---------- 배경 장면: 책상 사진 + 모니터 클로즈업 + 전화기 ---------- */
+.scene {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+
+.scene-desk {
+  position: absolute;
+  left: -4.32px;
+  top: 133.75px;
+  width: 1926.32px;
+  height: 1149.2px;
+  overflow: hidden;
+}
+
+.scene-desk img {
+  position: absolute;
+  left: 0;
+  top: -25.68%;
+  width: 100%;
+  height: 125.68%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.scene-monitor {
+  position: absolute;
+  left: calc(25% + 66.95px);
+  top: 227.18px;
+  width: 957px;
+  height: 695.21px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scene-monitor img {
+  position: absolute;
+  left: -57.6%;
+  top: -55.89%;
+  width: 201.29%;
+  height: 207.75%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.scene-phone {
+  position: absolute;
+  left: calc(66.67% + 30.48px);
+  top: 487.23px;
+  width: 368.83px;
+  height: 295.17px;
+  pointer-events: none;
+}
+
+.scene-phone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scene-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 63, 183, 0.3);
+  mix-blend-mode: color;
+  pointer-events: none;
 }
 
 /* ---------- 상단 멘트바 ---------- */
@@ -93,12 +147,8 @@ body {
 }
 
 @keyframes ticker-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* ---------- 메뉴바 ---------- */
@@ -197,15 +247,9 @@ body {
   text-underline-offset: 6px;
 }
 
-.nav-dropdown-col--about {
-  left: 1071px;
-}
-.nav-dropdown-col--faqs {
-  left: 1283px;
-}
-.nav-dropdown-col--program {
-  left: 1478px;
-}
+.nav-dropdown-col--about { left: 1071px; }
+.nav-dropdown-col--faqs { left: 1283px; }
+.nav-dropdown-col--program { left: 1478px; }
 
 /* ---------- 제목 배너 ---------- */
 .heading {
@@ -253,141 +297,104 @@ body {
   height: 9.9px;
 }
 
-.dot-divider--left {
-  left: 128.7px;
-}
-.dot-divider--right {
-  left: 403.6px;
+.dot-divider--left { left: 128.7px; }
+.dot-divider--right { left: 403.6px; }
+
+/* ---------- 오브제 (구성품) 클릭 영역 ----------
+   초록 박스는 실제 사진이 오기 전까지의 임시 자리표시. */
+.component-object {
+  position: absolute;
+  z-index: 3;
+  background: #0f7;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
-/* ---------- 안내문구 배경 밴드 ---------- */
-.intro-band {
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 300px;
-  width: 1920px;
-  height: 234px;
-  background: #edfff8;
+.component-object:hover {
+  filter: brightness(1.08);
 }
 
-/* ---------- 안내문구 ---------- */
-.intro-text {
+/* ---------- 구성품 설명 팝업 (임시 플레이스홀더) ---------- */
+.product-modal-overlay {
   position: absolute;
-  z-index: 2;
+  z-index: 20;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.product-modal-overlay.is-open {
+  display: block;
+}
+
+.manual-modal-box {
+  position: absolute;
   left: 50%;
-  top: 346.54px;
-  transform: translateX(-50%);
-  width: 1151.5px;
-  margin: 0;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.82;
-  color: #000;
-  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 639px;
+  height: 267px;
+  background: linear-gradient(to bottom, #fff, #e0ff9d);
+  border: 3px solid var(--ticker-bg);
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
-.intro-text p {
-  margin: 0;
-}
-
-/* ---------- FAQ 카드 ---------- */
-.faq-card {
+.manual-modal-topbar {
   position: absolute;
-  z-index: 2;
-  width: 1208px;
+  left: 0.1px;
+  top: -2.3px;
+  width: 639px;
+  height: 44px;
+  background: var(--ticker-bg);
+  overflow: hidden;
 }
 
-/* 뒤쪽 파란 그림자 사각형: DOM 순서상 항상 먼저 그려지므로 z-index 없이도 확실히 뒤에 깔린다 */
-.faq-shadow {
+.manual-modal-topbar span {
   position: absolute;
-  left: 10px;
-  top: 0;
+  left: 18.45px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-futura-heavy);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--card-green);
+  white-space: nowrap;
+}
+
+.manual-modal-close {
+  position: absolute;
+  left: 604px;
+  top: 11.5px;
+  width: 25px;
+  height: 21px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.manual-modal-close img {
+  display: block;
   width: 100%;
   height: 100%;
-  background: var(--ticker-bg);
-  box-shadow: 4px 4px 4px 3px rgba(0, 0, 0, 0.25);
 }
 
-/* 앞쪽 연두색 카드: 그림자 뒤에 DOM 순서상 나중에 오므로 항상 위에 그려진다 */
-.faq-front {
+.manual-modal-desc {
   position: absolute;
-  inset: 0;
-  background: var(--nav-bg);
-  border: 3px solid var(--ticker-bg);
-  box-sizing: border-box;
-}
-
-.faq-front .q-num {
-  position: absolute;
-  left: 0;
-  top: -59.203px;
-  width: 162px;
-  height: 59.203px;
-  background-image: url('images/faq/q-tab.svg');
-  background-size: 100% 100%;
-  transform: scaleY(-1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.faq-front .q-num span {
-  display: block;
-  transform: scaleY(-1);
-  font-family: var(--font-futura-bold);
-  font-weight: 700;
-  font-style: italic;
-  font-size: 32px;
-  color: #fff;
-}
-
-.faq-front .q-text {
-  position: absolute;
-  left: 30px;
-  top: 30.55px;
+  left: 15px;
+  top: 82px;
+  width: 609px;
   margin: 0;
-  width: 675px;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 1.413;
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  line-height: 44px;
   color: #000;
 }
 
-.faq-front .divider {
-  position: absolute;
-  left: 30px;
-  top: 72.797px;
-  width: 1148px;
-  height: auto;
-}
-
-.faq-front .a-text {
-  position: absolute;
-  left: 26.5px;
-  top: 90.35px;
-  margin: 0;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 26px;
-  line-height: 1.413;
-  color: #000;
-}
-
-/* ---------- 마스코트 ---------- */
-.mascot {
-  position: absolute;
-  z-index: 2;
-  left: 1380px;
-  top: 2542.83px;
-  width: 397.7px;
-  height: 370.25px;
-  filter: drop-shadow(-2px 2px 1.3px rgba(0, 0, 0, 0.51));
-}
-
-/* ---------- 인트라넷 접속 안내 팝업 ---------- */
+/* ---------- 인트라넷 접속 안내 팝업 (사이트 전역 고정 규격) ---------- */
 .intranet-modal {
   position: fixed;
   z-index: 10000;

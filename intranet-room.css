@@ -1,4 +1,4 @@
-/* 로딩 페이지 → 이 페이지 전환 시 150ms 디졸브(크로스페이드) */
+/* 이전 페이지 → 이 페이지 전환 시 150ms 디졸브(크로스페이드) */
 @view-transition {
   navigation: auto;
 }
@@ -12,7 +12,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -52,51 +53,37 @@ body {
   object-fit: cover;
 }
 
-/* 문고리 클릭 영역: 누르면 다음 페이지(intranet-room.html)로 이동 */
-.door-handle-hotspot {
+/* 방탈출 게임 스타일 힌트 화살표: 캐비닛 벽 쪽을 가리키며 위아래로 바운스 */
+.cabinet-arrow {
   position: absolute;
   z-index: 1;
-  left: 1360px;
-  top: 770px;
-  width: 280px;
-  height: 135px;
+  left: 903px;
+  top: 400px;
+  width: 114px;
+  height: 76px;
   cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.85));
+  animation: cabinet-arrow-bounce 1.4s ease-in-out infinite;
 }
 
-.connected-text {
-  position: absolute;
-  left: 50%;
-  top: 78.4px;
-  transform: translateX(-50%);
-  margin: 0;
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 600;
-  font-size: 25.2px;
-  line-height: 21px;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
+.cabinet-arrow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.connected-confirm {
-  position: absolute;
-  left: 50%;
-  top: 162.155px;
-  transform: translateX(-50%);
-  width: 127.4px;
-  height: 35px;
-  box-sizing: border-box;
-  background: #1b1b1b;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 400;
-  font-size: 22.4px;
-  line-height: 21px;
-  color: #fff;
-  cursor: pointer;
+.cabinet-arrow:hover {
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 1));
+}
+
+@keyframes cabinet-arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(14px);
+  }
 }
 
 .exit-btn {

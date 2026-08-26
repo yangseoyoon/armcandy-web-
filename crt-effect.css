@@ -1,0 +1,121 @@
+/* ---------- CRT/카메라 촬영 레트로 이펙트 (공용) ----------
+   .crt-frame 는 .stage 를 감싸는 래퍼. scale.js가 만드는 두 단계 스케일
+   (.crt-frame 자체 크기 + .crt-scaled 의 1920px→화면 스케일) 위에서
+   R/G/B 색수차, 스캔라인, 글로우, 비네트, 노이즈를 얹는다.
+   .on 클래스가 붙어야만 실제로 보인다(토글 가능). */
+
+.crt-frame {
+  position: relative;
+}
+
+.crt-scaled {
+  position: relative;
+  width: 1920px;
+  transform-origin: top left;
+}
+
+/* ---------- TV 베젤: 스크롤 중에도 항상 화면에 붙어있는 검정 틀 (tv-bezel.js) ----------
+   요소 자체는 안쪽 "창"만큼의 크기고, 거대한 box-shadow spread가 그 바깥
+   전부를 검정으로 채운다. 창 모서리만 border-radius로 둥글고, 페이지
+   콘텐츠 자체는 clip되지 않아 각진 그대로 유지된다. */
+.tv-bezel-window {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 9999px #000;
+}
+
+/* ---------- RGB 색수차 ----------
+   .crt-layer는 stage.innerHTML만 복제한 것이라 .stage 자신의
+   overflow:hidden은 못 딸려온다. 그래서 여기서 다시 잘라줘야
+   원본처럼 화면 밖으로 내용이 안 삐져나온다(예: 상점 진열대). */
+.crt-rgb {
+  display: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.crt-frame.on .crt-rgb {
+  display: block;
+}
+
+.crt-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* 파스텔/밝은 배경 위주 사이트라 원본 스펙(brightness .85 / opacity .5·.95)보다
+   낮춰서 화면이 하얗게 날아가지 않도록 조정 */
+.crt-r {
+  filter: sepia(1) saturate(6) hue-rotate(-52deg) brightness(0.7);
+  transform: translateX(-2px);
+  opacity: 0.28;
+}
+
+.crt-g {
+  filter: saturate(1.15) brightness(0.92);
+  opacity: 0.55;
+}
+
+.crt-b {
+  filter: sepia(1) saturate(6) hue-rotate(180deg) brightness(0.7);
+  transform: translateX(2px);
+  opacity: 0.28;
+}
+
+/* ---------- 스캔라인 / 글로우 / 비네트 / 노이즈 ----------
+   .crt-scaled(1920px 좌표계) 바깥, .crt-frame(실제 렌더 크기)에 직접 얹어서
+   화면 픽셀 기준의 얇은 스캔라인·그레인이 스케일에 뭉개지지 않게 한다. */
+.crt-scanlines,
+.crt-glow,
+.crt-vignette,
+.crt-noise {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.crt-frame.on .crt-scanlines,
+.crt-frame.on .crt-glow,
+.crt-frame.on .crt-vignette,
+.crt-frame.on .crt-noise {
+  display: block;
+}
+
+.crt-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.04) 0px,
+    rgba(0, 0, 0, 0.04) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* 원본 스펙 opacity .16 → 밝은 배경에서 날아가지 않게 .08로 낮춤 */
+.crt-glow {
+  background: radial-gradient(ellipse at 55% 40%, rgba(255, 255, 255, 0.08), transparent 60%);
+  mix-blend-mode: overlay;
+}
+
+.crt-vignette {
+  box-shadow: inset 0 0 90px 34px rgba(0, 0, 0, 0.54);
+}
+
+.crt-noise {
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  background-image: url('images/noise.svg');
+  background-size: 180px 180px;
+}

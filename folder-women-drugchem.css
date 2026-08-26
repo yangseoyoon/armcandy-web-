@@ -40,9 +40,9 @@ body {
 .cabinet-bg img {
   position: absolute;
   left: 0;
-  top: -70.99%;
-  width: 100%;
-  height: 241.98%;
+  top: 0;
+  width: 1920px;
+  height: 1093px;
   max-width: none;
 }
 
@@ -156,11 +156,12 @@ body {
 .index-label--bodymod-left { left: 307.74px; top: 493.19px; width: 17.223px; height: 57.708px; }
 .index-label--medical-left { left: 307.74px; top: 622.19px; width: 17.223px; height: 69.449px; }
 
-/* ---------- 파일 카드: 암페타민 / 벨라도나 안약 ----------
+/* ---------- 파일 카드: 암페타민 / 벨라도나 안약 / 마더스 리틀 헬퍼 ----------
    내보낸 PNG가 노드 자체 크기(611x878 @1x)와 정확히 일치해서(그림자
-   여백 없음, 처벌·강제 페이지 카드들과 동일 패턴) clip-path 크롭이
-   필요 없다. left/top/rotate 값은 코르셋 placeholder 때 이미 확정된
-   값 그대로 유지. */
+   여백 없음) clip-path 크롭이 필요 없다 — 처벌·강제 페이지 카드들과
+   완전히 같은 포맷이라 위치도 그쪽과 동일한 값(left:333/971,
+   top:113/84)을 써야 한다. 641x908짜리 코르셋/전족용 값(320/960,
+   100/72)을 잘못 재사용했던 걸 바로잡음. */
 .file-card-flat-wrap {
   position: absolute;
   z-index: 4;
@@ -177,14 +178,14 @@ body {
 }
 
 .file-card-flat-wrap--placeholder-left {
-  left: 320px;
-  top: 100px;
+  left: 333px;
+  top: 113px;
   transform: rotate(-2deg);
 }
 
 .file-card-flat-wrap--placeholder-right {
-  left: 960px;
-  top: 72px;
+  left: 971px;
+  top: 84px;
   transform: rotate(1deg);
 }
 
