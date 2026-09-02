@@ -192,6 +192,16 @@ body {
   text-underline-offset: 6px;
 }
 
+.intranet-trigger-hover {
+  display: none;
+}
+.intranet-trigger:hover .intranet-trigger-default {
+  display: none;
+}
+.intranet-trigger:hover .intranet-trigger-hover {
+  display: inline;
+}
+
 .nav-dropdown-col--about { left: 1071px; }
 .nav-dropdown-col--faqs { left: 1283px; }
 .nav-dropdown-col--program { left: 1478px; }
@@ -257,31 +267,100 @@ body {
 
 .hero-paragraph--front { top: 984.13px; color: #fff; text-shadow: 3px 3px 0 #000; font-size: 28px; }
 
-/* ---------- 동영상 (임시 플레이스홀더) ----------
-   나중에 실제 동영상을 넣어서 재생되게 교체할 자리. */
-.video-placeholder {
+/* ---------- 2번째 화면 장식: 핑크 모니터 ---------- */
+.screen2-wash {
   position: absolute;
-  z-index: 2;
-  left: 142.67px;
-  top: 1177.03px;
-  width: 1634.66px;
-  height: 927.49px;
-  background: #000;
+  z-index: 1;
+  left: 0;
+  top: 1076.13px;
+  width: 1920px;
+  height: 1083.847px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.29) 70.673%,
+    rgba(255, 14, 165, 0) 100%
+  );
+  pointer-events: none;
 }
 
-.video-placeholder video {
-  display: block;
-  width: 100%;
-  height: 100%;
+.screen2-glow {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 1392px;
+  width: 1920px;
+  height: 767.98px;
+  background: linear-gradient(to top, #ff0ea5 0%, rgba(255, 14, 165, 0) 75.481%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.screen2-monitor {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 954.47px;
+  transform: translateX(-50%);
+  width: 1937.3px;
+  height: 1452.7px;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+}
+
+/* 모니터 프레임 가운데 뚫린 화면 영역에 정확히 맞춘 영상 (프레임 뒤에 배치).
+   클릭하면 소리와 함께 재생, 더블클릭하면 800x600 크기로 확대 */
+.screen2-video {
+  position: absolute;
+  z-index: 2;
+  left: 604.33px;
+  top: 1247.71px;
+  width: 700px;
+  height: 500px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.screen2-video.is-enlarged {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 600px;
   object-fit: cover;
 }
 
+.screen2-video-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.screen2-video-backdrop.is-open {
+  display: block;
+}
+
 /* ---------- DON'T BE IN PAIN ANYMORE ---------- */
+.pain-green-panel {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 2086.6px;
+  width: 700.73px;
+  height: 640.43px;
+  background: var(--card-green);
+}
+
 .pain-photo-wrap {
   position: absolute;
   z-index: 2;
-  left: 0;
-  top: 2181.6px;
+  left: 700.73px;
+  top: 2086.6px;
   width: 1227.5px;
   height: 640.43px;
   background: #eee;
@@ -290,19 +369,20 @@ body {
 
 .pain-photo-wrap img {
   position: absolute;
-  left: 4px;
+  left: 0;
   top: 0;
-  width: 1219.3px;
-  height: 640.43px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center bottom;
 }
 
 .pain-title {
   position: absolute;
   z-index: 2;
-  left: calc(66.67% + 10px);
+  left: 66.87px;
   top: 0;
-  width: 567px;
+  width: 630px;
   font-family: var(--font-futura-bold-italic);
   font-style: italic;
   font-weight: 700;
@@ -316,14 +396,14 @@ body {
   width: 100%;
 }
 
-.pain-title--back { top: 2224.57px; left: 2px; color: #000; }
-.pain-title--front { top: 2223.53px; color: #ff0ea5; }
+.pain-title--back { top: 2129.17px; left: 2px; color: #000; }
+.pain-title--front { top: 2128.13px; color: #ff0ea5; }
 
 .pain-paragraph {
   position: absolute;
   z-index: 2;
-  left: calc(66.67% + 10px);
-  top: 2456.23px;
+  left: 66.87px;
+  top: 2299.17px;
   width: 563.38px;
   margin: 0;
   font-family: var(--font-body);
@@ -333,40 +413,37 @@ body {
   color: #000;
 }
 
-/* ---------- 특징 3카드 (블루+그린 그림자 스택) ---------- */
-.feature-accent {
+.pain-building-wrap {
   position: absolute;
-  z-index: 1;
-  left: 1223.13px;
-  top: 2181.6px;
-  width: 700.73px;
-  height: 640.43px;
-  background: var(--card-green);
+  z-index: 2;
+  left: 18px;
+  top: 2524.41px;
+  width: 863.15px;
+  height: 643.78px;
 }
 
+.pain-building-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+/* ---------- 특징 3카드 (그린+블루 그림자 스택) ---------- */
 .feature-card {
   position: absolute;
   z-index: 2;
-  top: 2876.66px;
+  top: 2795.41px;
   width: 318.55px;
-  height: 276.73px;
-  background: var(--ticker-bg);
-}
-
-.feature-card::before {
-  content: '';
-  position: absolute;
-  left: -10px;
-  top: -10px;
-  width: 100%;
-  height: 100%;
+  height: 226.24px;
   background: var(--card-green);
-  z-index: -1;
+  box-shadow: 10px 8.18px 0 0 var(--ticker-bg);
 }
 
-.feature-card--1 { left: 422.23px; }
-.feature-card--2 { left: 800.78px; }
-.feature-card--3 { left: 1179.21px; }
+.feature-card--1 { left: 841.52px; }
+.feature-card--2 { left: 1200.07px; }
+.feature-card--3 { left: 1558.62px; }
 
 .feature-card p {
   position: absolute;
@@ -380,7 +457,7 @@ body {
 }
 
 .feature-card .feature-num {
-  top: 15.04px;
+  top: 22.9px;
   font-family: var(--font-futura-bold-italic);
   font-style: italic;
   font-weight: 700;
@@ -388,21 +465,15 @@ body {
 }
 
 .feature-card .feature-title {
-  top: 80.34px;
+  top: 88.21px;
   font-family: var(--font-futura-bold-italic);
   font-style: italic;
   font-weight: 700;
   font-size: 26px;
 }
 
-.feature-card .feature-hearts {
-  top: 128.34px;
-  font-family: var(--font-body);
-  font-size: 26px;
-}
-
 .feature-card .feature-desc {
-  top: 184.27px;
+  top: 144.21px;
   font-family: var(--font-pixel);
   font-size: 20px;
   line-height: 1.413;
@@ -689,21 +760,21 @@ body {
 
 .intranet-modal-box {
   position: relative;
-  width: 793.1px;
-  height: 247.1px;
+  width: 882px;
+  height: 266px;
   background: rgba(0, 0, 0, 0.7);
 }
 
 .intranet-modal-text {
   position: absolute;
   left: 50%;
-  top: 78.4px;
+  top: 78px;
   transform: translateX(-50%);
   margin: 0;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 25.2px;
-  line-height: 21px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-align: center;
   white-space: nowrap;
@@ -711,9 +782,9 @@ body {
 
 .intranet-modal-btn {
   position: absolute;
-  top: 162.155px;
-  width: 127.4px;
-  height: 35px;
+  top: 193px;
+  width: 182px;
+  height: 50px;
   box-sizing: border-box;
   background: #1b1b1b;
   border: none;
@@ -722,12 +793,12 @@ body {
   justify-content: center;
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 22.4px;
-  line-height: 21px;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
-.intranet-modal-btn--yes { left: 199.15px; }
-.intranet-modal-btn--no { left: 466.55px; }
+.intranet-modal-btn--yes { left: 209px; }
+.intranet-modal-btn--no { left: 491px; }

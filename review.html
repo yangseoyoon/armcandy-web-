@@ -46,7 +46,7 @@
         <div class="nav-dropdown">
           <div class="nav-dropdown-col nav-dropdown-col--about">
             <a href="main.html">ARM CANDY PROGRAM</a>
-            <a href="#" class="intranet-trigger">██ ███ █████</a>
+            <a href="#" class="intranet-trigger"><span class="intranet-trigger-default">██ ███ █████</span><span class="intranet-trigger-hover">ARM CANDY INTRANET</span></a>
           </div>
           <div class="nav-dropdown-col nav-dropdown-col--faqs">
             <a href="faq.html">자주 묻는 질문과 답변</a>
@@ -161,12 +161,40 @@
 
     </div>
 
+    <audio id="ticketValidatorAudio" src="audio/ticket-validato.mp3" preload="auto"></audio>
+
     <script src="crt-effect.js"></script>
     <script src="scale.js"></script>
     <script src="tv-bezel.js"></script>
     <script>
       const paper = document.getElementById('reviewPaper');
       const scrollTopBtn = document.getElementById('scrollTopBtn');
+      const ticketValidatorAudio = document.getElementById('ticketValidatorAudio');
+
+      // ticket-validato는 기본 볼륨(100%)보다 더 크게 틀어달라는 요청이라
+      // <audio>의 volume(최대 1.0)만으로는 안 되고 Web Audio API 게인으로 증폭한다.
+      let ticketGain = null;
+      function playTicketValidator() {
+        try {
+          if (!ticketGain) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            const audioCtx = new AudioContextClass();
+            const source = audioCtx.createMediaElementSource(ticketValidatorAudio);
+            const gainNode = audioCtx.createGain();
+            gainNode.gain.value = 1.05; // +5%
+            source.connect(gainNode).connect(audioCtx.destination);
+            ticketGain = { audioCtx, gainNode };
+          }
+          if (ticketGain.audioCtx.state === 'suspended') {
+            ticketGain.audioCtx.resume();
+          }
+          ticketValidatorAudio.currentTime = 0;
+          ticketValidatorAudio.play().catch(() => {});
+        } catch (e) {
+          ticketValidatorAudio.currentTime = 0;
+          ticketValidatorAudio.play().catch(() => {});
+        }
+      }
 
       // 새로고침하면 항상 맨 위에서 시작해야 한다. 브라우저의 기본 스크롤
       // 복원(이전 위치로 되돌리는 동작)이 끼어들지 않도록 꺼두고 직접 0으로 보낸다.
@@ -210,6 +238,8 @@
       document.querySelectorAll('.vending-click').forEach((btn) => {
         btn.addEventListener('click', () => {
           const token = ++dropToken;
+
+          playTicketValidator();
 
           // 목표 스크롤 위치는 종이가 최종적으로 안착하는 자연 위치(translateY(0))를
           // 기준으로 먼저 계산해야 한다. -176px로 띄운 상태에서 재면, 그 오프셋 자체가

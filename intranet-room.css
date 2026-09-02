@@ -53,36 +53,70 @@ body {
   object-fit: cover;
 }
 
-/* 방탈출 게임 스타일 힌트 화살표: 캐비닛 벽 쪽을 가리키며 위아래로 바운스 */
-.cabinet-arrow {
+/* ---------- 앞으로 가기 / 뒤로가기: 하단 중앙 텍스트+세모 내비게이션 ---------- */
+.nav-btn-group {
   position: absolute;
-  z-index: 1;
-  left: 903px;
-  top: 400px;
-  width: 114px;
-  height: 76px;
+  z-index: 2;
+  left: 50%;
+  top: 880px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
   cursor: pointer;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.85));
-  animation: cabinet-arrow-bounce 1.4s ease-in-out infinite;
+  animation: nav-btn-bounce 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  transition: filter 150ms ease;
 }
 
-.cabinet-arrow svg {
+.nav-btn:hover {
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.95));
+}
+
+.nav-btn--forward {
+  animation-name: nav-btn-bounce-reverse;
+}
+
+.nav-btn-label {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 600;
+  font-size: 29px;
+  color: #000;
+  white-space: nowrap;
+}
+
+.nav-btn-triangle {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 27px;
+  height: 21px;
 }
 
-.cabinet-arrow:hover {
-  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 1));
-}
-
-@keyframes cabinet-arrow-bounce {
+@keyframes nav-btn-bounce {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(14px);
+    transform: translateY(6px);
+  }
+}
+
+@keyframes nav-btn-bounce-reverse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
   }
 }
 
@@ -149,21 +183,21 @@ body {
 
 .intranet-modal-box {
   position: relative;
-  width: 793.1px;
-  height: 247.1px;
+  width: 882px;
+  height: 266px;
   background: rgba(0, 0, 0, 0.7);
 }
 
 .intranet-modal-text {
   position: absolute;
   left: 50%;
-  top: 78.4px;
+  top: 78px;
   transform: translateX(-50%);
   margin: 0;
   font-family: 'Pretendard', sans-serif;
-  font-weight: 600;
-  font-size: 25.2px;
-  line-height: 21px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-align: center;
   white-space: nowrap;
@@ -171,9 +205,9 @@ body {
 
 .intranet-modal-btn {
   position: absolute;
-  top: 162.155px;
-  width: 127.4px;
-  height: 35px;
+  top: 193px;
+  width: 182px;
+  height: 50px;
   box-sizing: border-box;
   background: #1b1b1b;
   border: none;
@@ -182,16 +216,16 @@ body {
   justify-content: center;
   font-family: 'Pretendard', sans-serif;
   font-weight: 400;
-  font-size: 22.4px;
-  line-height: 21px;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
 .intranet-modal-btn--yes {
-  left: 199.15px;
+  left: 209px;
 }
 .intranet-modal-btn--no {
-  left: 466.55px;
+  left: 491px;
 }

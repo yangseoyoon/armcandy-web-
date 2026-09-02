@@ -12,6 +12,7 @@
     />
 
     <link rel="stylesheet" href="intranet-room.css" />
+    <link rel="stylesheet" href="glitch-effect.css" />
   </head>
   <body>
     <div class="stage">
@@ -19,12 +20,17 @@
         <img src="images/intranet/room-bg.png" alt="" />
       </div>
 
-      <!-- 방탈출 게임처럼 캐비닛 쪽을 가리키는 화살표. 누르면 캐비닛 페이지로 이동 -->
-      <a class="cabinet-arrow" href="cabinet-women.html" aria-label="캐비닛으로 이동">
-        <svg viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 8 L45 45 L82 8" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
+      <!-- 앞으로 가기 / 뒤로가기: 하단 중앙 텍스트+세모 내비게이션 -->
+      <div class="nav-btn-group">
+        <a class="nav-btn nav-btn--forward" href="cabinet-women.html">
+          <img class="nav-btn-triangle" src="images/intranet/triangle-up.svg" alt="" />
+          <span class="nav-btn-label">앞으로 가기</span>
+        </a>
+        <a class="nav-btn nav-btn--back" href="intranet-connected.html">
+          <span class="nav-btn-label">뒤로가기</span>
+          <img class="nav-btn-triangle" src="images/intranet/triangle-down.svg" alt="" />
+        </a>
+      </div>
 
       <button type="button" class="exit-btn" id="exitBtn" aria-label="나가기">
         <img
@@ -64,6 +70,7 @@
       </div>
     </div>
 
+    <script src="glitch-effect.js"></script>
     <script src="folder-scale.js"></script>
     <script>
       const exitBtn = document.getElementById('exitBtn');

@@ -1,0 +1,29 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="188.574" height="108.07" viewBox="0 0 188.574 108.07" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 207">
+<g id="Ellipse 44" filter="url(#filter0_d_0_4)">
+<ellipse cx="91.2872" cy="51.0352" rx="91.2872" ry="51.0352" fill="#FF0EA5" style="fill:#FF0EA5;fill:color(display-p3 1.0000 0.0549 0.6471);fill-opacity:1;"/>
+<path d="M91.2871 1.5C116.288 1.5 138.848 7.16839 155.104 16.2568C171.41 25.3728 181.074 37.7295 181.074 51.0352C181.074 64.3408 171.41 76.6976 155.104 85.8135C138.848 94.9019 116.288 100.57 91.2871 100.57C66.2864 100.57 43.7266 94.9019 27.4697 85.8135C11.164 76.6976 1.5 64.3408 1.5 51.0352C1.5 37.7295 11.164 25.3728 27.4697 16.2568C43.7266 7.16837 66.2864 1.50001 91.2871 1.5Z" stroke="white" style="stroke:white;stroke-opacity:1;" stroke-width="3"/>
+</g>
+<g id="Group 206">
+<path id="Vector" d="M145.048 40.9141H148.154V58.3008H154.122V61.2239H145.048V40.9141Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path id="Vector_2" d="M139.134 61.2279L137.002 56.3255H128.324L126.101 61.2279H122.752L132.861 39.7305L142.483 61.2279H139.134ZM129.603 53.4023H135.754L132.739 46.5207L129.603 53.4023Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path id="Vector_3" d="M95.5732 40.9158H98.9227L104.282 54.4963L109.763 39.9414L115.061 54.4963L120.603 40.9158H123.952L114.878 62.535L109.58 48.1324L104.221 62.535L95.5732 40.9158Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path id="Vector_4" d="M93.8676 40.9141V43.8372H85.768V48.9832H93.624V51.9064H85.768V58.3008H93.8676V61.2239H82.6621V40.9141H93.8676Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path id="Vector_5" d="M63.0492 61.227H59.9434V39.5469L74.681 54.9848V40.9171H77.7868V62.4754L63.0492 47.0375V61.227Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path id="Vector_6" d="M55.9242 40.9141V43.8372H47.8246V48.9832H55.6806V51.9064H47.8246V58.3008H55.9242V61.2239H44.7188V40.9141H55.9242Z" fill="white" style="fill:white;fill-opacity:1;"/>
+<path id="Vector_7" d="M28.4531 40.9141H32.0766C34.543 40.9141 36.1264 41.2186 37.4358 42.1016C39.6586 43.5936 39.8413 45.9991 39.8413 46.8822C39.8413 49.8053 38.0447 51.9368 35.3347 52.5458L41.6682 61.2239H37.923L32.1071 52.9112H31.559V61.2239H28.4531V40.9141ZM31.559 43.7763V50.2316H32.5334C33.386 50.2316 36.8572 50.1403 36.8572 46.9126C36.8572 44.0504 34.1472 43.7763 32.6247 43.7763H31.559Z" fill="white" style="fill:white;fill-opacity:1;"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_0_4" x="0" y="0" width="188.574" height="108.07" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3" dy="3"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_4"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_4" result="shape"/>
+</filter>
+</defs>
+</svg>

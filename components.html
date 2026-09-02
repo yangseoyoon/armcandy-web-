@@ -84,7 +84,7 @@
         <div class="nav-dropdown">
           <div class="nav-dropdown-col nav-dropdown-col--about">
             <a href="main.html">ARM CANDY PROGRAM</a>
-            <a href="#" class="intranet-trigger">██ ███ █████</a>
+            <a href="#" class="intranet-trigger"><span class="intranet-trigger-default">██ ███ █████</span><span class="intranet-trigger-hover">ARM CANDY INTRANET</span></a>
           </div>
           <div class="nav-dropdown-col nav-dropdown-col--faqs">
             <a href="faq.html">자주 묻는 질문과 답변</a>
@@ -161,6 +161,27 @@
           <p class="manual-modal-desc" id="componentModalDesc"></p>
         </div>
       </div>
+
+      <!-- 전화기 클릭 시: 안내음성 메세지 팝업 -->
+      <div
+        class="product-modal-overlay"
+        id="callVoiceModalOverlay"
+        aria-hidden="true"
+      >
+        <div class="call-modal-box">
+          <div class="call-modal-pink-fade" aria-hidden="true"></div>
+          <div class="call-modal-topbar">
+            <span>안내음성 메세지</span>
+            <button type="button" class="call-modal-close" aria-label="닫기">
+              <img src="images/components/call-modal-close.svg" alt="" />
+            </button>
+          </div>
+          <p class="call-modal-status">재생 중...</p>
+          <div class="call-modal-photo">
+            <img src="images/components/call-icon.svg" alt="" />
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 인트라넷 접속 안내 팝업: .stage 바깥(뷰포트 기준 고정)에 두어야 스케일과 무관하게 항상 화면 중앙에 뜬다 -->
@@ -177,6 +198,8 @@
         </button>
       </div>
     </div>
+
+    <audio id="callVoiceAudio" src="audio/call-voice.mp3" preload="auto"></audio>
 
     <script src="crt-effect.js"></script>
     <script src="scale.js"></script>
@@ -216,6 +239,24 @@
             e.preventDefault();
             componentModalOverlay.classList.remove('is-open');
           });
+        });
+
+      // 전화기 클릭 -> 안내음성 메세지 팝업 + 오디오 재생
+      const callVoiceModalOverlay = document.getElementById('callVoiceModalOverlay');
+      const callVoiceAudio = document.getElementById('callVoiceAudio');
+
+      document.querySelector('.scene-phone').addEventListener('click', () => {
+        callVoiceModalOverlay.classList.add('is-open');
+        callVoiceAudio.currentTime = 0;
+        callVoiceAudio.play().catch(() => {});
+      });
+
+      document
+        .querySelector('#callVoiceModalOverlay .call-modal-close')
+        .addEventListener('click', () => {
+          callVoiceModalOverlay.classList.remove('is-open');
+          callVoiceAudio.pause();
+          callVoiceAudio.currentTime = 0;
         });
     </script>
   </body>

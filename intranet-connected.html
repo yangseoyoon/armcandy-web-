@@ -12,6 +12,7 @@
     />
 
     <link rel="stylesheet" href="intranet-connected.css" />
+    <link rel="stylesheet" href="glitch-effect.css" />
   </head>
   <body>
     <div class="stage">
@@ -19,7 +20,12 @@
         <img src="images/intranet/door-bg.png" alt="" />
       </div>
 
-      <a class="door-handle-hotspot" href="intranet-room.html" aria-label="문 열기"></a>
+      <a class="door-handle-hotspot" href="intranet-room.html" aria-label="문 열기">
+        <div class="door-open-content">
+          <span class="door-open-label">열기</span>
+          <img class="door-open-triangle" src="images/intranet/triangle-right.svg" alt="" />
+        </div>
+      </a>
 
       <button type="button" class="exit-btn" id="exitBtn" aria-label="나가기">
         <img
@@ -37,7 +43,7 @@
 
     <!-- 검정 팝업창은 .stage 바깥(뷰포트 기준 고정)에 둬야 stage의 scale 트랜스폼과 무관하게
 사이트 전역에서 항상 동일한 793.1x247.1px 크기로 보인다 -->
-    <div class="intranet-modal is-open" id="connectedModal" aria-hidden="true">
+    <div class="intranet-modal" id="connectedModal" aria-hidden="true">
       <div class="intranet-modal-box">
         <p class="connected-text">인트라넷에 접속하셨습니다.</p>
         <button type="button" class="connected-confirm">확인</button>
@@ -68,10 +74,21 @@
 
     <audio id="connectAudio" src="audio/intranet-connection.mp3" preload="auto"></audio>
 
+    <script src="glitch-effect.js"></script>
     <script src="folder-scale.js"></script>
     <script>
       const connectAudio = document.getElementById('connectAudio');
-      connectAudio.play().catch(() => {});
+      // 뒤로가기(bfcache 복원 등 back_forward 내비게이션)로 이 페이지에 왔을 때는
+      // "접속하셨습니다" 팝업/사운드를 다시 띄우지 않는다.
+      const navEntry = performance.getEntriesByType('navigation')[0];
+      const isBackForward = navEntry
+        ? navEntry.type === 'back_forward'
+        : performance.navigation && performance.navigation.type === 2;
+
+      if (!isBackForward) {
+        document.getElementById('connectedModal').classList.add('is-open');
+        connectAudio.play().catch(() => {});
+      }
 
       document
         .querySelector('.connected-confirm')

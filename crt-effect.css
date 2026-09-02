@@ -28,6 +28,7 @@
   pointer-events: none;
   border-radius: 10px;
   box-shadow: 0 0 0 9999px #000;
+  display: none; /* 임시로 안 보이게 처리. 다시 켜려면 이 줄만 지우면 됨 */
 }
 
 /* ---------- RGB 색수차 ----------

@@ -197,6 +197,16 @@ body {
   text-underline-offset: 6px;
 }
 
+.intranet-trigger-hover {
+  display: none;
+}
+.intranet-trigger:hover .intranet-trigger-default {
+  display: none;
+}
+.intranet-trigger:hover .intranet-trigger-hover {
+  display: inline;
+}
+
 .nav-dropdown-col--about {
   left: 1071px;
 }
@@ -403,21 +413,21 @@ body {
 
 .intranet-modal-box {
   position: relative;
-  width: 793.1px;
-  height: 247.1px;
+  width: 882px;
+  height: 266px;
   background: rgba(0, 0, 0, 0.7);
 }
 
 .intranet-modal-text {
   position: absolute;
   left: 50%;
-  top: 78.4px;
+  top: 78px;
   transform: translateX(-50%);
   margin: 0;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 25.2px;
-  line-height: 21px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-align: center;
   white-space: nowrap;
@@ -425,9 +435,9 @@ body {
 
 .intranet-modal-btn {
   position: absolute;
-  top: 162.155px;
-  width: 127.4px;
-  height: 35px;
+  top: 193px;
+  width: 182px;
+  height: 50px;
   box-sizing: border-box;
   background: #1b1b1b;
   border: none;
@@ -436,12 +446,12 @@ body {
   justify-content: center;
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 22.4px;
-  line-height: 21px;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
-.intranet-modal-btn--yes { left: 199.15px; }
-.intranet-modal-btn--no { left: 466.55px; }
+.intranet-modal-btn--yes { left: 209px; }
+.intranet-modal-btn--no { left: 491px; }

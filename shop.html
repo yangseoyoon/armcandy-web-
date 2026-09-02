@@ -77,7 +77,7 @@
         <div class="nav-dropdown">
           <div class="nav-dropdown-col nav-dropdown-col--about">
             <a href="main.html">ARM CANDY PROGRAM</a>
-            <a href="#" class="intranet-trigger">██ ███ █████</a>
+            <a href="#" class="intranet-trigger"><span class="intranet-trigger-default">██ ███ █████</span><span class="intranet-trigger-hover">ARM CANDY INTRANET</span></a>
           </div>
           <div class="nav-dropdown-col nav-dropdown-col--faqs">
             <a href="faq.html">자주 묻는 질문과 답변</a>
@@ -133,15 +133,17 @@
         <img src="images/shop/product-brain.png" alt="뇌" />
       </a>
 
-      <div
+      <a
         class="product product--pills-silver"
+        href="#"
         style="left: 928.76px; top: 435.81px; width: 214.28px; height: 303.01px"
       >
         <img src="images/shop/product-pills-silver.png" alt="나비약" />
-      </div>
+      </a>
 
-      <div
+      <a
         class="product product--mask"
+        href="#"
         style="
           left: 1532.19px;
           top: 454.05px;
@@ -150,43 +152,119 @@
         "
       >
         <img src="images/shop/product-mask.png" alt="교정 마스크" />
-      </div>
+      </a>
 
-      <div
+      <a
         class="product product--belladonna"
-        style="left: 1243.1px; top: 445px; width: 194.75px; height: 275.4px"
+        href="#"
+        style="left: 1204.51px; top: 495.38px; width: 251.21px; height: 183.87px"
       >
         <img src="images/shop/product-belladonna.png" alt="벨라도나 안약" />
-      </div>
+      </a>
+
+      <a
+        class="product product--botox"
+        href="#"
+        style="left: 1650px; top: 760px; width: 170px; height: 240px"
+      >
+        <img src="images/shop/product-botox.png" alt="보톡스" />
+      </a>
 
       <!-- 상품 상세 팝업: 페이지 자체 좌표계를 쓰므로 .stage 내부에 두어 나머지 콘텐츠와 함께 스케일된다 -->
       <div class="product-modal-overlay" id="productModalOverlay" aria-hidden="true">
-        <div class="product-modal-box">
+        <div class="product-modal-box product-modal-box--amphetamine">
           <div class="product-modal-topbar">
             <span>AMPHETAPINE · <b>암페타민</b></span>
             <button type="button" class="product-modal-close" aria-label="닫기">
               <img src="images/shop/product-modal-close.svg" alt="" />
             </button>
           </div>
-          <div class="product-modal-photo">
+
+          <!-- 왼쪽 상단 뱃지 2개: 슬로건 + BEST SELLER -->
+          <div class="amph-badge amph-badge--slogan"><span>흐트러진 집중력을 다시 ON</span></div>
+          <div class="amph-badge amph-badge--tag"><span>BEST SELLER</span></div>
+
+          <div class="product-modal-photo product-modal-photo--amphetamine">
             <img src="images/shop/product-pills-pink.png" alt="암페타민" />
           </div>
-          <p class="product-modal-title">AMPHETAMINE</p>
-          <p class="product-modal-subtitle">[암페타민]</p>
-          <div class="product-modal-desc">
+          <p class="product-modal-title product-modal-title--amphetamine">AMPHETAMINE</p>
+          <p class="product-modal-subtitle product-modal-subtitle--amphetamine">[암페타민]</p>
+          <div class="product-modal-desc product-modal-desc--amphetamine">
             <p class="product-modal-desc-front">
-              강력한 중추신경계 각성제의 일종이다.<br />
-              기분을 좋게 하고 피로감을 줄이며 에너지가 상승하는 느낌을 준다. <br />
-              피로와 식욕을 감소시키고 뇌의 기민성을 높여 체중 감량의 효과가 있다.
+              더 오래, 더 빠르게, 더 완벽하게, 오늘 해야 할 일은 오늘 끝내세요!<br />
+              바쁜 일정 속에서도 높은 집중력과 활동성이 필요한 이들을 위해 준비되었습니다. <br />
+              끊없는 에너지와 활기로 멈추지 않는 하루를 만들어보세요.
             </p>
             <p class="product-modal-desc-back">
-              내성과 정신적인 의존성이 생기기 쉬우며 과다 복용 시 발기부전, 우울증의 가능성이 있다.<br />
-              심한 경우 급성 중독으로 사망에 이를 수도 있다. <br />
-              정신적으로 폭력성을 보이거나 판단력이 상실된 행복감을 느끼기도 한다.
+              강력한 중추신경계 각성제의 일종으로 피로와 식욕을 감소시키며 체중 감량의 효과가 있다.<br />
+              그러나 내성과 의존성이 생기기 쉬우며 과다 복용 시 발기부전, 우울증의 가능성이 있다.<br />
+              심한 경우 급성 중독으로 사망에 이르기도 한다.
             </p>
           </div>
-          <div class="product-modal-btn product-modal-btn--buy">구매하기</div>
-          <a href="#" class="product-modal-btn product-modal-btn--cancel">취소하기</a>
+          <div class="product-modal-btn product-modal-btn--buy product-modal-btn--amphetamine-buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel product-modal-btn--amphetamine-cancel">취소하기</a>
+
+          <!-- 오른쪽 사이드바: 리뷰 + 오늘의 추천 + 무료배송 프로모 -->
+          <div class="amph-sidebar">
+            <div class="amph-reviews-bg"></div>
+            <div class="amph-reviews-head"></div>
+            <p class="amph-rating">★★★★★ 5.0 (133 Reviews)</p>
+
+            <div class="amph-review amph-review--1">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+            <div class="amph-review amph-review--2">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">꾸준히 먹으니까 살도 안찌고 잠도 안와요. 추천합니다.</p>
+            </div>
+            <div class="amph-review amph-review--3">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+            <div class="amph-review amph-review--4">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">꾸준히 먹으니까 살도 안찌고 잠도 안와요. 추천합니다.</p>
+            </div>
+            <div class="amph-review amph-review--5">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+
+            <div class="amph-best-sticker">
+              <img src="images/shop/amphetamine-best-sticker.svg" alt="" />
+            </div>
+
+            <div class="amph-recommend" data-target-modal="productModalOverlay2">
+              <div class="amph-recommend-arrow">
+                <img src="images/shop/amphetamine-union-arrow.svg" alt="" />
+              </div>
+              <p class="amph-recommend-label">TODAY'S<br />RECOMMEND</p>
+              <div class="amph-recommend-photo">
+                <img src="images/shop/amphetamine-recommend-brain.png" alt="로보토미" />
+              </div>
+              <p class="amph-recommend-name">LOBOTOMY</p>
+            </div>
+
+            <div class="amph-click-scribble">
+              <img src="images/shop/amphetamine-click-scribble.svg" alt="" />
+              <span>click!</span>
+            </div>
+
+            <div class="amph-shipping">
+              <span class="amph-shipping-badge">EVENT</span>
+              <p class="amph-shipping-title">FREE SHIPPING</p>
+              <p class="amph-shipping-sub">ON YOUR<br />FIRST ORDER</p>
+              <div class="amph-shipping-photo">
+                <img src="images/shop/amphetamine-shipping-gift.png" alt="" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -199,25 +277,518 @@
               <img src="images/shop/product-modal-close.svg" alt="" />
             </button>
           </div>
-          <div class="product-modal-photo product-modal-photo--lobotomy">
+          <!-- 왼쪽 상단 뱃지 2개: 슬로건 + WEEKLY PICK! -->
+          <div class="amph-badge amph-badge--slogan"><span>갈등과 고민을 한 번에 RESET</span></div>
+          <div class="amph-badge amph-badge--tag"><span>WEEKLY PICK!</span></div>
+
+          <div class="product-modal-photo product-modal-photo--lobotomy product-modal-photo--lobotomy-side">
             <img src="images/shop/product-modal-brain.png" alt="로보토미" />
           </div>
-          <p class="product-modal-title">LOBOTOMY</p>
-          <p class="product-modal-subtitle">[뇌엽절제술]</p>
-          <div class="product-modal-desc product-modal-desc--lobotomy">
+          <p class="product-modal-title product-modal-title--amphetamine">LOBOTOMY</p>
+          <p class="product-modal-subtitle product-modal-subtitle--amphetamine">[뇌엽절제술]</p>
+          <div class="product-modal-desc product-modal-desc--lobotomy product-modal-desc--amphetamine">
             <p class="product-modal-desc-front">
-              전두엽과 연결되는 뇌의 신경망을 끊는 '짧고 간단한' 수술이다. <br />
-              감정, 주도성, 독립적 판단 능력 등을 제거한다. <br />
-              극심한 불안, 우울증, 폭력성 치료에 효과적이며 순종적인 성격을 만들어 준다.
+              복잡한 생각이 너무 많으신가요? <br />
+              불필요한 고민과 갈등에서 벗어난 단순한 삶을 원하는 이들을 위한 짧고 간단한 수술입니다. <br />
+              한 번의 수술로 이전과는 완전히 다른 삶을 시작할 수 있습니다.
             </p>
             <p class="product-modal-desc-back">
-              전두엽을 손상시키기 때문에 사람의 인간성을 이루는 감정과 지적 능력이 상실된다.<br />
-              지능이 저하되어 어린아이처럼 변하거나 충동 조절의 어려움을 겪기도 한다. <br />
-              간헐적 발작이나 실금 등 신체적 합병증도 동반된다.
+              전두엽과 연결되는 뇌의 신경망을 끊는 수술로, 전두엽을 손상시켜 사람의<br />
+              인간성을 이루는 감정과 지적 능력이 상실된다. 지능이 저하되거나 충동 조절의 어려움을<br />
+              겪기도 한다. 간헐적 발작이나 실금 등 신체적 합병증도 동반된다.
             </p>
           </div>
-          <div class="product-modal-btn product-modal-btn--buy">구매하기</div>
-          <a href="#" class="product-modal-btn product-modal-btn--cancel">취소하기</a>
+          <div class="product-modal-btn product-modal-btn--buy product-modal-btn--amphetamine-buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel product-modal-btn--amphetamine-cancel">취소하기</a>
+
+          <!-- 오른쪽 사이드바: 리뷰 + 오늘의 추천(암페타민) + 무료배송 프로모 -->
+          <div class="amph-sidebar">
+            <div class="amph-reviews-bg"></div>
+            <div class="amph-reviews-head"></div>
+            <p class="amph-rating">★★★★★ 4.0 (239 Reviews)</p>
+
+            <div class="amph-review amph-review--1">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">효과 좋음. 최고</p>
+            </div>
+            <div class="amph-review amph-review--2">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">진작 시킬 껄. 너무 편하네요.</p>
+            </div>
+            <div class="amph-review amph-review--3">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">혼자서는 아무것도 못하게 됐어요. 만족합니다.</p>
+            </div>
+            <div class="amph-review amph-review--4">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★☆☆☆☆</p>
+              <p class="amph-review-text">수술 받은 뒤 친구가 어린아이처럼 변했어요,</p>
+            </div>
+            <div class="amph-review amph-review--5">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★☆☆☆☆</p>
+              <p class="amph-review-text">사이트의 정책을 위반해 삭제된 리뷰입니다.</p>
+            </div>
+
+            <div class="amph-best-sticker">
+              <img src="images/shop/amphetamine-best-sticker.svg" alt="" />
+            </div>
+
+            <div class="amph-recommend" data-target-modal="productModalOverlay2">
+              <div class="amph-recommend-arrow">
+                <img src="images/shop/amphetamine-union-arrow.svg" alt="" />
+              </div>
+              <p class="amph-recommend-label">TODAY'S<br />RECOMMEND</p>
+              <div class="amph-recommend-photo">
+                <img src="images/shop/amphetamine-recommend-brain.png" alt="로보토미" />
+              </div>
+              <p class="amph-recommend-name">LOBOTOMY</p>
+            </div>
+
+            <div class="amph-click-scribble">
+              <img src="images/shop/amphetamine-click-scribble.svg" alt="" />
+              <span>click!</span>
+            </div>
+
+            <div class="amph-shipping">
+              <span class="amph-shipping-badge">EVENT</span>
+              <p class="amph-shipping-title">FREE SHIPPING</p>
+              <p class="amph-shipping-sub">ON YOUR<br />FIRST ORDER</p>
+              <div class="amph-shipping-photo">
+                <img src="images/shop/amphetamine-shipping-gift.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 상품 상세 팝업: 펜타민 -->
+      <div class="product-modal-overlay" id="productModalOverlay3" aria-hidden="true">
+        <div class="product-modal-box product-modal-box--amphetamine">
+          <div class="product-modal-topbar">
+            <span>PHENTERMINE · <b>펜타민</b></span>
+            <button type="button" class="product-modal-close" aria-label="닫기">
+              <img src="images/shop/product-modal-close.svg" alt="" />
+            </button>
+          </div>
+
+          <!-- 왼쪽 상단 뱃지 2개: 슬로건 + WEEKLY PICK! -->
+          <div class="amph-badge amph-badge--slogan"><span>가벼운 몸과 가벼운 하루를 위한 선택!</span></div>
+          <div class="amph-badge amph-badge--tag"><span>WEEKLY PICK!</span></div>
+
+          <!-- NEW 스티커 -->
+          <div class="phentermine-new-sticker" aria-hidden="true">
+            <img src="images/shop/phentermine-new-sticker.svg" alt="" />
+          </div>
+
+          <div class="product-modal-photo product-modal-photo--phentermine">
+            <img src="images/shop/phentermine-photo.png" alt="펜타민" />
+          </div>
+          <p class="product-modal-title product-modal-title--amphetamine">PHENTERMINE</p>
+          <p class="product-modal-subtitle product-modal-subtitle--amphetamine">[펜타민]</p>
+          <div class="product-modal-desc product-modal-desc--amphetamine">
+            <p class="product-modal-desc-front">
+              흔들리는 식욕, 이제 더 이상 힘들게 참지 마세요!<br />
+              식욕과 체중에 대한 고민을 프로그램 기준에 맞춰 관리하기 위해 사용되는 <br />
+              교정 보조제입니다. 매일의 식사와 자기관리를 간편하게 통제해 보세요.
+            </p>
+            <p class="product-modal-desc-back">
+              흔히 '나비약'이라고 불리는 식욕억제제로 뇌의 식욕 중추에 작용해 배고픔을 줄이고<br />
+              포만감을 높여 단기간 체중감량에 효과적이다. 입마름, 가슴의 두근거림 등의 신체 증상<br />
+              외에도 우울증이나 신경과민, 환각, 공황증세 같은 정신적 부작용 또한 흔하게 발생한다.
+            </p>
+          </div>
+          <div class="product-modal-btn product-modal-btn--buy product-modal-btn--amphetamine-buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel product-modal-btn--amphetamine-cancel">취소하기</a>
+
+          <!-- 오른쪽 사이드바: 리뷰 + 오늘의 추천(로보토미) + 무료배송 프로모 -->
+          <div class="amph-sidebar">
+            <div class="amph-reviews-bg"></div>
+            <div class="amph-reviews-head"></div>
+            <p class="amph-rating">★★★★★ 5.0 (133 Reviews)</p>
+
+            <div class="amph-review amph-review--1">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+            <div class="amph-review amph-review--2">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">꾸준히 먹으니까 살도 안찌고 잠도 안와요. 추천합니다.</p>
+            </div>
+            <div class="amph-review amph-review--3">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+            <div class="amph-review amph-review--4">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">꾸준히 먹으니까 살도 안찌고 잠도 안와요. 추천합니다.</p>
+            </div>
+            <div class="amph-review amph-review--5">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+
+            <div class="amph-best-sticker">
+              <img src="images/shop/amphetamine-best-sticker.svg" alt="" />
+            </div>
+
+            <div class="amph-recommend" data-target-modal="productModalOverlay2">
+              <div class="amph-recommend-arrow">
+                <img src="images/shop/amphetamine-union-arrow.svg" alt="" />
+              </div>
+              <p class="amph-recommend-label">TODAY'S<br />RECOMMEND</p>
+              <div class="amph-recommend-photo">
+                <img src="images/shop/amphetamine-recommend-brain.png" alt="로보토미" />
+              </div>
+              <p class="amph-recommend-name">LOBOTOMY</p>
+            </div>
+
+            <div class="amph-click-scribble">
+              <img src="images/shop/amphetamine-click-scribble.svg" alt="" />
+              <span>click!</span>
+            </div>
+
+            <div class="amph-shipping">
+              <span class="amph-shipping-badge">EVENT</span>
+              <p class="amph-shipping-title">FREE SHIPPING</p>
+              <p class="amph-shipping-sub">ON YOUR<br />FIRST ORDER</p>
+              <div class="amph-shipping-photo">
+                <img src="images/shop/amphetamine-shipping-gift.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 상품 상세 팝업: 벨라도나 안약 -->
+      <div class="product-modal-overlay" id="productModalOverlay4" aria-hidden="true">
+        <div class="product-modal-box product-modal-box--amphetamine">
+          <div class="product-modal-topbar">
+            <span>BELLADONNA DROPS · <b>벨라도나 안약</b></span>
+            <button type="button" class="product-modal-close" aria-label="닫기">
+              <img src="images/shop/product-modal-close.svg" alt="" />
+            </button>
+          </div>
+
+          <!-- 왼쪽 상단 뱃지 2개: 슬로건 + STEADY SELLER -->
+          <div class="amph-badge amph-badge--slogan"><span>한 방울로 완성하는 아름다움</span></div>
+          <div class="amph-badge amph-badge--tag"><span>STEADY SELLER</span></div>
+
+          <!-- RENEWAL 스티커 -->
+          <div class="phentermine-new-sticker" aria-hidden="true">
+            <img src="images/shop/belladonna-renewal-sticker.svg" alt="" />
+          </div>
+
+          <div class="product-modal-photo product-modal-photo--belladonna">
+            <img src="images/shop/belladonna-photo.png" alt="벨라도나 안약" />
+          </div>
+          <p class="product-modal-title product-modal-title--amphetamine">BELLADONNA DROPS</p>
+          <p class="product-modal-subtitle product-modal-subtitle--amphetamine">[벨라도나 안약]</p>
+          <div class="product-modal-desc product-modal-desc--amphetamine">
+            <p class="product-modal-desc-front">
+              더 크고 선명해 보이는 눈매를 위한 클래식 아이템! 과거 아름다운 눈을 연출하기 위해<br />
+              사용되었던 벨라도나의 비법을 가져왔습니다.<br />
+              더 크고 또렷한 눈을 만들고 싶은 사람들에게 추천하는 제품입니다.
+            </p>
+            <p class="product-modal-desc-back">
+              밸라돈나풀에서 유래한 아트로핀(Atropine) 성분을 포함한 안약으로 동공을 확장시켜<br />
+              눈동자를 커보이게 한다. 하지만 강한 독성이 있어 '미쳐서 죽는 풀(Deadly nightshade)'로도<br />
+              불리며 과다복용 시 환각이나 섬망을 일으킨다. 과거에는 이를 과다사용 해 실명하거나 사망하는 경우도 빈번했다.
+            </p>
+          </div>
+          <div class="product-modal-btn product-modal-btn--buy product-modal-btn--amphetamine-buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel product-modal-btn--amphetamine-cancel">취소하기</a>
+
+          <!-- 오른쪽 사이드바: 리뷰 + 오늘의 추천(로보토미) + 무료배송 프로모 -->
+          <div class="amph-sidebar">
+            <div class="amph-reviews-bg"></div>
+            <div class="amph-reviews-head"></div>
+            <p class="amph-rating">★★★★★ 5.0 (133 Reviews)</p>
+
+            <div class="amph-review amph-review--1">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">완전 필수템</p>
+            </div>
+            <div class="amph-review amph-review--2">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">자연스럽게 눈이 커져서 좋네요 ㅋㅋ</p>
+            </div>
+            <div class="amph-review amph-review--3">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★☆☆☆☆</p>
+              <p class="amph-review-text">앞이 안보여ㅓㅕㅕ 오</p>
+            </div>
+            <div class="amph-review amph-review--4">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★☆☆☆</p>
+              <p class="amph-review-text">벽지가 자꾸 움직여요. 거대한 사람이 절 보고있어요.</p>
+            </div>
+            <div class="amph-review amph-review--5">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">클래식 아이템엔 이유가 있는 법</p>
+            </div>
+
+            <div class="amph-best-sticker">
+              <img src="images/shop/amphetamine-best-sticker.svg" alt="" />
+            </div>
+
+            <div class="amph-recommend" data-target-modal="productModalOverlay2">
+              <div class="amph-recommend-arrow">
+                <img src="images/shop/amphetamine-union-arrow.svg" alt="" />
+              </div>
+              <p class="amph-recommend-label">TODAY'S<br />RECOMMEND</p>
+              <div class="amph-recommend-photo">
+                <img src="images/shop/amphetamine-recommend-brain.png" alt="로보토미" />
+              </div>
+              <p class="amph-recommend-name">LOBOTOMY</p>
+            </div>
+
+            <div class="amph-click-scribble">
+              <img src="images/shop/amphetamine-click-scribble.svg" alt="" />
+              <span>click!</span>
+            </div>
+
+            <div class="amph-shipping">
+              <span class="amph-shipping-badge">EVENT</span>
+              <p class="amph-shipping-title">FREE SHIPPING</p>
+              <p class="amph-shipping-sub">ON YOUR<br />FIRST ORDER</p>
+              <div class="amph-shipping-photo">
+                <img src="images/shop/amphetamine-shipping-gift.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 상품 상세 팝업: 잔소리꾼의 굴레(교정 마스크) -->
+      <div class="product-modal-overlay" id="productModalOverlay5" aria-hidden="true">
+        <div class="product-modal-box product-modal-box--amphetamine">
+          <div class="product-modal-topbar">
+            <span>SCOLD'S BRIDLE · <b>잔소리꾼의 굴레</b></span>
+            <button type="button" class="product-modal-close" aria-label="닫기">
+              <img src="images/shop/product-modal-close.svg" alt="" />
+            </button>
+          </div>
+
+          <!-- 왼쪽 상단 뱃지 3개: 슬로건 + STEADY SELLER + BEST SELLER -->
+          <div class="amph-badge amph-badge--slogan"><span>조용한 가정을 위한 간편한 솔루션</span></div>
+          <div class="amph-badge amph-badge--tag"><span>STEADY SELLER</span></div>
+          <div class="amph-badge amph-badge--tag2"><span>BEST SELLER</span></div>
+
+          <!-- BELOVED 강력추천 스티커 -->
+          <div class="bridle-best-sticker" aria-hidden="true">
+            <img src="images/shop/bridle-best-sticker.svg" alt="" />
+          </div>
+
+          <div class="product-modal-photo product-modal-photo--bridle">
+            <img src="images/shop/bridle-photo.png" alt="잔소리꾼의 굴레" />
+          </div>
+          <p class="product-modal-title product-modal-title--amphetamine">SCOLD'S BRIDLE</p>
+          <p class="product-modal-subtitle product-modal-subtitle--amphetamine">[잔소리꾼의 굴레]</p>
+          <div class="product-modal-desc product-modal-desc--amphetamine">
+            <p class="product-modal-desc-front">
+              잔소리는 이제 그만! 시끄러운 잔소리꾼을 조용하게!<br />
+              지겹고 불필요한 소음을 효과적으로 차단해주는 구속 장치입니다. 장착 후 입과 혀의<br />
+              움직임을 제한하여 해제 전까지 말하거나 물을 마실 수 없도록 설계되어 있습니다.
+            </p>
+            <p class="product-modal-desc-back">
+              중세 시대 여성에게 사용되던 실제 고문·처벌 도구를 재현한 제품이다. 착용자의 입과 혀를<br />
+              물리적으로 억압해 말을 할 수 없게 만들며, 장시간 착용 시 침 삼킴 곤란, 질식, 구강 내<br />
+              상처 등 신체적 손상을 일으킬 수 있다. 정신적으로도 극심한 굴욕감과 공포를 유발한다.
+            </p>
+          </div>
+          <div class="product-modal-btn product-modal-btn--buy product-modal-btn--amphetamine-buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel product-modal-btn--amphetamine-cancel">취소하기</a>
+
+          <!-- 오른쪽 사이드바: 리뷰 + 오늘의 추천(로보토미) + 무료배송 프로모 -->
+          <div class="amph-sidebar">
+            <div class="amph-reviews-bg"></div>
+            <div class="amph-reviews-head"></div>
+            <p class="amph-rating">★★★★★ 5.0 (133 Reviews)</p>
+
+            <div class="amph-review amph-review--1">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">걍 채우기만 하면 알아서 조용해지니까 좋음.</p>
+            </div>
+            <div class="amph-review amph-review--2">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★☆</p>
+              <p class="amph-review-text">착용 시킬 때 자꾸 싫다고 방해하는데 어떻게 해결하죠</p>
+            </div>
+            <div class="amph-review amph-review--3">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">한 번 채우고 나니까 그 뒤부턴 잔소리가 아예 없어지네요.</p>
+            </div>
+            <div class="amph-review amph-review--4">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">꾸준히 먹으니까 살도 안찌고 잠도 안와요. 추천합니다.</p>
+            </div>
+            <div class="amph-review amph-review--5">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+
+            <div class="amph-best-sticker">
+              <img src="images/shop/amphetamine-best-sticker.svg" alt="" />
+            </div>
+
+            <div class="amph-recommend" data-target-modal="productModalOverlay2">
+              <div class="amph-recommend-arrow">
+                <img src="images/shop/amphetamine-union-arrow.svg" alt="" />
+              </div>
+              <p class="amph-recommend-label">TODAY'S<br />RECOMMEND</p>
+              <div class="amph-recommend-photo">
+                <img src="images/shop/amphetamine-recommend-brain.png" alt="로보토미" />
+              </div>
+              <p class="amph-recommend-name">LOBOTOMY</p>
+            </div>
+
+            <div class="amph-click-scribble">
+              <img src="images/shop/amphetamine-click-scribble.svg" alt="" />
+              <span>click!</span>
+            </div>
+
+            <div class="amph-shipping">
+              <span class="amph-shipping-badge">EVENT</span>
+              <p class="amph-shipping-title">FREE SHIPPING</p>
+              <p class="amph-shipping-sub">ON YOUR<br />FIRST ORDER</p>
+              <div class="amph-shipping-photo">
+                <img src="images/shop/amphetamine-shipping-gift.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 상품 상세 팝업: 보톡스 (Figma에 상세설명 프레임이 아직 없어서, 다른 상품과
+           동일한 구조만 확정하고 문구는 임시로 채워둠 — 실제 카피 받으면 교체 예정) -->
+      <div class="product-modal-overlay" id="productModalOverlay6" aria-hidden="true">
+        <div class="product-modal-box product-modal-box--amphetamine">
+          <div class="product-modal-topbar">
+            <span>BOTOX · <b>보톡스</b></span>
+            <button type="button" class="product-modal-close" aria-label="닫기">
+              <img src="images/shop/product-modal-close.svg" alt="" />
+            </button>
+          </div>
+
+          <!-- 왼쪽 상단 뱃지 2개: 슬로건 + BEST SELLER (임시 문구) -->
+          <div class="amph-badge amph-badge--slogan"><span>동안 피부를 위한 필수템</span></div>
+          <div class="amph-badge amph-badge--tag"><span>BEST SELLER</span></div>
+
+          <div class="product-modal-photo product-modal-photo--botox">
+            <img src="images/shop/product-botox.png" alt="보톡스" />
+          </div>
+          <p class="product-modal-title product-modal-title--amphetamine">BOTOX</p>
+          <p class="product-modal-subtitle product-modal-subtitle--amphetamine">[보톡스]</p>
+          <div class="product-modal-desc product-modal-desc--amphetamine">
+            <p class="product-modal-desc-front">
+              나이가 느껴지는 표정 주름, 이제 걱정하지 마세요!<br />
+              보톡스 시술로 이마, 미간, 눈가의 주름을 매끄럽게 펴드립니다.<br />
+              간단한 시술만으로 몇 년은 어려 보이는 인상을 만들 수 있습니다.
+            </p>
+            <p class="product-modal-desc-back">
+              보툴리눔 톡신을 근육에 주입해 신경 전달을 차단, 근육을 마비시켜 주름을 없애는<br />
+              시술이다. 반복 시술 시 근육이 위축되어 표정이 부자연스러워질 수 있으며, 두통,<br />
+              멍, 눈꺼풀 처짐 등의 부작용이 있고 드물게 독소가 퍼져 호흡 곤란을 일으키기도 한다.
+            </p>
+          </div>
+          <div class="product-modal-btn product-modal-btn--buy product-modal-btn--amphetamine-buy">구매하기</div>
+          <a href="#" class="product-modal-btn product-modal-btn--cancel product-modal-btn--amphetamine-cancel">취소하기</a>
+
+          <!-- 오른쪽 사이드바: 리뷰 + 오늘의 추천(로보토미) + 무료배송 프로모 -->
+          <div class="amph-sidebar">
+            <div class="amph-reviews-bg"></div>
+            <div class="amph-reviews-head"></div>
+            <p class="amph-rating">★★★★★ 5.0 (133 Reviews)</p>
+
+            <div class="amph-review amph-review--1">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+            <div class="amph-review amph-review--2">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">꾸준히 먹으니까 살도 안찌고 잠도 안와요. 추천합니다.</p>
+            </div>
+            <div class="amph-review amph-review--3">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+            <div class="amph-review amph-review--4">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">꾸준히 먹으니까 살도 안찌고 잠도 안와요. 추천합니다.</p>
+            </div>
+            <div class="amph-review amph-review--5">
+              <p class="amph-review-user">DFDLLVKD USER</p>
+              <p class="amph-review-stars">★★★★★</p>
+              <p class="amph-review-text">너무 좋아요 이것만 있으면 너무 행복해져요</p>
+            </div>
+
+            <div class="amph-best-sticker">
+              <img src="images/shop/amphetamine-best-sticker.svg" alt="" />
+            </div>
+
+            <div class="amph-recommend" data-target-modal="productModalOverlay2">
+              <div class="amph-recommend-arrow">
+                <img src="images/shop/amphetamine-union-arrow.svg" alt="" />
+              </div>
+              <p class="amph-recommend-label">TODAY'S<br />RECOMMEND</p>
+              <div class="amph-recommend-photo">
+                <img src="images/shop/amphetamine-recommend-brain.png" alt="로보토미" />
+              </div>
+              <p class="amph-recommend-name">LOBOTOMY</p>
+            </div>
+
+            <div class="amph-click-scribble">
+              <img src="images/shop/amphetamine-click-scribble.svg" alt="" />
+              <span>click!</span>
+            </div>
+
+            <div class="amph-shipping">
+              <span class="amph-shipping-badge">EVENT</span>
+              <p class="amph-shipping-title">FREE SHIPPING</p>
+              <p class="amph-shipping-sub">ON YOUR<br />FIRST ORDER</p>
+              <div class="amph-shipping-photo">
+                <img src="images/shop/amphetamine-shipping-gift.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 구매 완료 팝업: .stage 바깥(뷰포트 기준 고정)에 두어야 스케일과 무관하게 항상 화면 중앙에 뜬다 -->
+    <div class="purchase-complete-overlay" id="purchaseCompleteOverlay" aria-hidden="true">
+      <audio id="dropCoinAudio" src="audio/drop-coin.mp3" preload="auto"></audio>
+      <div class="purchase-complete-box">
+        <p class="purchase-complete-title">Thank You For Your Order</p>
+        <div class="purchase-complete-photo">
+          <img src="images/shop/purchase-complete-box.png" alt="" />
+        </div>
+        <div class="purchase-complete-desc">
+          <p>구매가 완료되었습니다.</p>
+          <p>&nbsp;</p>
+          <p>환불이나 교환은 불가능하며 빠른 시일 내에<br />담당 배달원이 방문할 것입니다.</p>
+          <p>&nbsp;</p>
+          <p>부작용에 대해서는 책임지지 않습니다.</p>
         </div>
       </div>
     </div>
@@ -251,6 +822,22 @@
         e.preventDefault();
         document.getElementById('productModalOverlay2').classList.add('is-open');
       });
+      document.querySelector('.product--pills-silver').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('productModalOverlay3').classList.add('is-open');
+      });
+      document.querySelector('.product--belladonna').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('productModalOverlay4').classList.add('is-open');
+      });
+      document.querySelector('.product--mask').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('productModalOverlay5').classList.add('is-open');
+      });
+      document.querySelector('.product--botox').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('productModalOverlay6').classList.add('is-open');
+      });
 
       // 팝업 안의 취소/닫기(X) 버튼은 자신이 속한 팝업만 닫는다
       document.querySelectorAll('.product-modal-btn--cancel, .product-modal-close').forEach((btn) => {
@@ -258,6 +845,96 @@
           e.preventDefault();
           btn.closest('.product-modal-overlay').classList.remove('is-open');
         });
+      });
+
+      // 사이드바의 "TODAY'S RECOMMEND" 박스 클릭 -> 현재 팝업 닫고 추천 상품 팝업으로 전환
+      document.querySelector('.stage').querySelectorAll('.amph-recommend').forEach((box) => {
+        box.addEventListener('click', () => {
+          const targetId = box.getAttribute('data-target-modal');
+          const target = document.getElementById(targetId);
+          if (!target) return;
+          box.closest('.product-modal-overlay').classList.remove('is-open');
+          target.classList.add('is-open');
+        });
+      });
+
+      // 구매하기 -> 화면 정중앙에 구매 완료 팝업이 아래에서 올라오며 나타남,
+      // 클릭하면 다시 내려가며 닫히고 처음 SHOP 화면(상품 팝업까지 전부 닫힌 상태)으로 돌아감
+      const purchaseCompleteOverlay = document.getElementById('purchaseCompleteOverlay');
+      const dropCoinAudio = document.getElementById('dropCoinAudio');
+      document.querySelector('.stage').querySelectorAll('.product-modal-btn--buy').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          purchaseCompleteOverlay.classList.remove('is-closing');
+          purchaseCompleteOverlay.classList.add('is-open');
+          dropCoinAudio.currentTime = 0;
+          dropCoinAudio.play().catch(() => {});
+        });
+      });
+      purchaseCompleteOverlay.addEventListener('click', () => {
+        purchaseCompleteOverlay.classList.add('is-closing');
+        setTimeout(() => {
+          purchaseCompleteOverlay.classList.remove('is-open', 'is-closing');
+          document.querySelectorAll('.product-modal-overlay.is-open').forEach((overlay) => {
+            overlay.classList.remove('is-open');
+          });
+        }, 260);
+      });
+
+      // 팝업 창 자체가 깨지는 글리치용 고스트 레이어(색분리 밴드 찢김 + 블랙아웃)를
+      // 각 팝업 박스에 미리 심어둔다. .stage로 스코프를 잡아 CRT 고스트 클론
+      // 안의 팝업 복제본에는 심지 않는다.
+      document.querySelector('.stage').querySelectorAll('.product-modal-box').forEach((box) => {
+        ['modal-glitch-r', 'modal-glitch-b', 'modal-glitch-slice'].forEach((cls) => {
+          const layer = document.createElement('div');
+          layer.className = 'modal-glitch-layer ' + cls;
+          layer.setAttribute('aria-hidden', 'true');
+          layer.innerHTML = box.innerHTML;
+          layer.querySelectorAll('a, button, input, textarea, select').forEach((el) => {
+            el.tabIndex = -1;
+          });
+          box.appendChild(layer);
+        });
+        const blackout = document.createElement('div');
+        blackout.className = 'modal-glitch-blackout';
+        blackout.setAttribute('aria-hidden', 'true');
+        box.appendChild(blackout);
+      });
+
+      // 상품설명 "호버 글리치 리빌": 마우스오버/키보드 포커스 시 짧은 글리치 후
+      // 광고 카피 <-> 부작용 텍스트가 전환된다. .product-modal-desc 마크업만
+      // 있으면 카드가 몇 개든 자동으로 적용됨(모바일 터치는 지원하지 않음).
+      // 같은 순간, 팝업 창 자체도 (다른 스타일의) 글리치로 함께 흔들린다.
+      document.querySelector('.stage').querySelectorAll('.product-modal-desc').forEach((desc) => {
+        desc.setAttribute('tabindex', '0');
+
+        const flash = document.createElement('div');
+        flash.className = 'desc-glitch-flash';
+        flash.setAttribute('aria-hidden', 'true');
+        desc.appendChild(flash);
+
+        const box = desc.closest('.product-modal-box');
+        let glitchTimer = null;
+        let boxGlitchTimer = null;
+        function pulseGlitch() {
+          desc.classList.remove('is-glitching');
+          void desc.offsetWidth;
+          desc.classList.add('is-glitching');
+          clearTimeout(glitchTimer);
+          glitchTimer = setTimeout(() => desc.classList.remove('is-glitching'), 300);
+
+          if (box) {
+            box.classList.remove('is-window-glitching');
+            void box.offsetWidth;
+            box.classList.add('is-window-glitching');
+            clearTimeout(boxGlitchTimer);
+            boxGlitchTimer = setTimeout(() => box.classList.remove('is-window-glitching'), 320);
+          }
+        }
+
+        desc.addEventListener('mouseenter', pulseGlitch);
+        desc.addEventListener('mouseleave', pulseGlitch);
+        desc.addEventListener('focus', pulseGlitch);
+        desc.addEventListener('blur', pulseGlitch);
       });
     </script>
   </body>

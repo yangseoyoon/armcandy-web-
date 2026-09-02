@@ -211,6 +211,16 @@ body {
   text-underline-offset: 6px;
 }
 
+.intranet-trigger-hover {
+  display: none;
+}
+.intranet-trigger:hover .intranet-trigger-default {
+  display: none;
+}
+.intranet-trigger:hover .intranet-trigger-hover {
+  display: inline;
+}
+
 .nav-dropdown-col--about { left: 1071px; }
 .nav-dropdown-col--faqs { left: 1283px; }
 .nav-dropdown-col--program { left: 1478px; }
@@ -330,6 +340,84 @@ body {
   overflow: hidden;
 }
 
+/* ---------- 팝업 창 자체가 "깨지는" 글리치 (상품설명 글리치와는 다른 느낌:
+   지터+색수차 텍스트그림자 대신, 화면이 가로로 찢어지는 밴드 + 색분리 고스트 +
+   블랙아웃 플래시). desc 호버/포커스와 같은 순간에 같이 터짐, JS가 .product-modal-box
+   자체의 transform(중앙정렬용)은 건드리지 않고 자식 레이어만 애니메이션한다. */
+.modal-glitch-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.modal-glitch-r {
+  filter: sepia(1) saturate(6) hue-rotate(-52deg) brightness(0.9);
+}
+.modal-glitch-b {
+  filter: sepia(1) saturate(6) hue-rotate(180deg) brightness(0.9);
+}
+.modal-glitch-slice {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  mix-blend-mode: normal;
+}
+.modal-glitch-blackout {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: #000;
+  opacity: 0;
+}
+
+.product-modal-box.is-window-glitching .modal-glitch-r {
+  animation: modal-glitch-r 320ms steps(2) 1;
+}
+.product-modal-box.is-window-glitching .modal-glitch-b {
+  animation: modal-glitch-b 320ms steps(2) 1;
+}
+.product-modal-box.is-window-glitching .modal-glitch-slice {
+  animation: modal-glitch-slice 320ms steps(2) 1;
+}
+.product-modal-box.is-window-glitching .modal-glitch-blackout {
+  animation: modal-glitch-blackout 320ms steps(1) 1;
+}
+
+@keyframes modal-glitch-r {
+  0% { clip-path: inset(6% 0 60% 0); transform: translate(-22px, 0); opacity: 0.7; }
+  25% { clip-path: inset(48% 0 10% 0); transform: translate(16px, -4px); opacity: 0.5; }
+  50% { clip-path: inset(4% 0 78% 0); transform: translate(-14px, 3px); opacity: 0.6; }
+  75% { clip-path: inset(58% 0 6% 0); transform: translate(18px, 0); opacity: 0.5; }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); opacity: 0; }
+}
+@keyframes modal-glitch-b {
+  0% { clip-path: inset(60% 0 6% 0); transform: translate(22px, 0); opacity: 0.7; }
+  25% { clip-path: inset(10% 0 48% 0); transform: translate(-16px, 4px); opacity: 0.5; }
+  50% { clip-path: inset(78% 0 4% 0); transform: translate(14px, -3px); opacity: 0.6; }
+  75% { clip-path: inset(6% 0 58% 0); transform: translate(-18px, 0); opacity: 0.5; }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); opacity: 0; }
+}
+@keyframes modal-glitch-slice {
+  0% { clip-path: inset(8% 0 66% 0); transform: translateX(-26px); opacity: 1; }
+  20% { clip-path: inset(52% 0 14% 0); transform: translateX(20px); opacity: 1; }
+  40% { clip-path: inset(4% 0 84% 0); transform: translateX(-16px); opacity: 1; }
+  60% { clip-path: inset(62% 0 8% 0); transform: translateX(22px); opacity: 1; }
+  80% { clip-path: inset(24% 0 40% 0); transform: translateX(-10px); opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); transform: translateX(0); opacity: 0; }
+}
+@keyframes modal-glitch-blackout {
+  0%, 100% { opacity: 0; }
+  15% { opacity: 0.7; }
+  30% { opacity: 0; }
+  55% { opacity: 0.5; }
+  75% { opacity: 0; }
+  90% { opacity: 0.35; }
+}
+
 .product-modal-topbar {
   position: absolute;
   left: -13px;
@@ -342,9 +430,9 @@ body {
 
 .product-modal-topbar span {
   position: absolute;
-  left: 147.45px;
+  left: 28.45px;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   font-family: var(--font-futura-demi);
   font-size: 22px;
   color: var(--card-green);
@@ -405,6 +493,16 @@ body {
   overflow: visible;
 }
 
+/* 사이드바(리뷰/추천/배송 프로모)가 추가된 버전: 왼쪽 컬럼 중심(521.27px, 암페타민과 동일)에 맞춰 이동 */
+.product-modal-photo--lobotomy-side {
+  left: 295.63px;
+  top: 82.75px;
+  width: 440.29px;
+  height: 444.35px;
+  transform: none;
+  overflow: hidden;
+}
+
 .product-modal-photo--lobotomy img {
   position: static;
   width: 100%;
@@ -435,7 +533,7 @@ body {
   font-weight: 700;
   font-size: 20px;
   color: #ffcb00;
-  text-shadow: 1.5px 1.5px 0 #000;
+  text-shadow: 2.5px 2.5px 0 #000;
   white-space: nowrap;
 }
 
@@ -449,7 +547,8 @@ body {
   overflow: hidden;
 }
 
-/* 마우스를 올리면 앞면(효능 설명)이 뒷면(부작용/진실)으로 디졸브 전환된다 */
+/* 마우스를 올리거나(호버) 키보드로 포커스하면 앞면(광고 카피)이 뒷면(부작용/진실)으로
+   글리치를 일으키며 전환된다. 떼거나 포커스를 잃으면 다시 글리치를 일으키며 복귀. */
 .product-modal-desc-front,
 .product-modal-desc-back {
   position: absolute;
@@ -462,9 +561,9 @@ body {
   justify-content: center;
   font-family: var(--font-pixel);
   font-size: 20px;
-  line-height: 34px;
+  line-height: 44px;
   text-align: center;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.22s steps(3, end);
 }
 
 .product-modal-desc-front {
@@ -479,17 +578,61 @@ body {
   opacity: 0;
 }
 
-.product-modal-desc:hover .product-modal-desc-front {
+.product-modal-desc:hover .product-modal-desc-front,
+.product-modal-desc:focus .product-modal-desc-front,
+.product-modal-desc:focus-within .product-modal-desc-front {
   opacity: 0;
 }
 
-.product-modal-desc:hover .product-modal-desc-back {
+.product-modal-desc:hover .product-modal-desc-back,
+.product-modal-desc:focus .product-modal-desc-back,
+.product-modal-desc:focus-within .product-modal-desc-back {
   opacity: 1;
 }
 
-.product-modal-desc--lobotomy .product-modal-desc-front,
-.product-modal-desc--lobotomy .product-modal-desc-back {
-  line-height: 44px;
+/* 호버/포커스 진입·이탈 순간 0.3초짜리 글리치: 텍스트 지터 + 색수차(빨강/청록 이중 그림자) */
+.product-modal-desc.is-glitching .product-modal-desc-front,
+.product-modal-desc.is-glitching .product-modal-desc-back {
+  animation: desc-glitch-jitter 300ms steps(2) 1;
+}
+@keyframes desc-glitch-jitter {
+  0% { transform: translate(0, 0); text-shadow: none; }
+  15% { transform: translate(-3px, 1px); text-shadow: -2px 0 rgba(255, 32, 64, 0.75), 2px 0 rgba(0, 224, 255, 0.75); }
+  30% { transform: translate(2px, -2px); text-shadow: 3px 0 rgba(255, 32, 64, 0.7), -3px 0 rgba(0, 224, 255, 0.7); }
+  45% { transform: translate(-2px, 1px); text-shadow: -2px 0 rgba(255, 32, 64, 0.6), 2px 0 rgba(0, 224, 255, 0.6); }
+  62% { transform: translate(3px, 0); text-shadow: 2px 0 rgba(255, 32, 64, 0.5), -2px 0 rgba(0, 224, 255, 0.5); }
+  80% { transform: translate(-1px, 0); text-shadow: -1px 0 rgba(255, 32, 64, 0.3), 1px 0 rgba(0, 224, 255, 0.3); }
+  100% { transform: translate(0, 0); text-shadow: none; }
+}
+
+/* 같은 글리치 순간, 스캔라인/노이즈가 순간적으로 깜빡이는 플래시 (JS가 자동으로 삽입) */
+.desc-glitch-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.55) 0px,
+      rgba(255, 255, 255, 0.55) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    url('images/noise.svg');
+  background-size: auto, 140px 140px;
+}
+.product-modal-desc.is-glitching .desc-glitch-flash {
+  animation: desc-glitch-flash 300ms steps(4) 1;
+}
+@keyframes desc-glitch-flash {
+  0%, 100% { opacity: 0; }
+  15% { opacity: 0.85; }
+  30% { opacity: 0.15; }
+  50% { opacity: 0.7; }
+  70% { opacity: 0.1; }
+  85% { opacity: 0.5; }
 }
 
 .product-modal-btn {
@@ -520,6 +663,412 @@ body {
   cursor: pointer;
 }
 
+/* =====================================================================
+   암페타민 상세설명 리디자인 (Figma node 2127:883)
+   기존 .product-modal-* 공용 클래스는 그대로 두고, 위치/배경만 덮어쓰는
+   --amphetamine 계열 modifier로 이 상품 팝업에만 적용한다.
+   ===================================================================== */
+
+.product-modal-box--amphetamine {
+  background: linear-gradient(to bottom, #ff8bd4, #ff0ea5);
+}
+
+/* 상단 왼쪽 뱃지 2개(슬로건 + 프로모 태그). 색/테두리/그림자는 두 상품 공통,
+   너비는 상품마다 문구 길이가 달라 인라인 style로 지정한다. */
+.amph-badge {
+  position: absolute;
+  left: 35.6px;
+  width: max-content;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 3px solid #d6ff7d;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  overflow: hidden;
+}
+.amph-badge--slogan {
+  top: 79px;
+  background: #ff8bd4;
+}
+.amph-badge--tag {
+  top: 149px;
+  background: #ff0ea5;
+}
+.amph-badge--tag2 {
+  top: 219px;
+  background: #ff0ea5;
+}
+.amph-badge span {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.42;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.product-modal-photo--amphetamine {
+  left: 217.4px;
+  top: 192.01px;
+  width: 606.75px;
+  height: 318.03px;
+  transform: none;
+}
+
+.product-modal-photo--phentermine {
+  left: 332.46px;
+  top: 11.86px;
+  width: 387.64px;
+  height: 548.16px;
+  transform: none;
+}
+.product-modal-photo--phentermine img {
+  top: 0;
+  height: 100%;
+}
+
+.product-modal-photo--belladonna {
+  left: 256.77px;
+  top: 102.87px;
+  width: 529.7px;
+  height: 387.7px;
+  transform: none;
+}
+.product-modal-photo--belladonna img {
+  top: 0;
+  height: 100%;
+}
+
+.product-modal-photo--bridle {
+  left: 279.73px;
+  top: 70.57px;
+  width: 444.55px;
+  height: 444.55px;
+  transform: none;
+}
+.product-modal-photo--bridle img {
+  top: 0;
+  height: 100%;
+}
+
+.product-modal-photo--botox {
+  left: 344.77px;
+  top: 15px;
+  width: 353px;
+  height: 500px;
+  transform: none;
+}
+.product-modal-photo--botox img {
+  top: 0;
+  height: 100%;
+}
+
+.bridle-best-sticker {
+  position: absolute;
+  z-index: 2;
+  left: 617.36px;
+  top: 92.11px;
+  width: 213.83px;
+  height: 147.44px;
+  pointer-events: none;
+}
+.bridle-best-sticker img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.phentermine-new-sticker {
+  position: absolute;
+  z-index: 2;
+  left: 608.12px;
+  top: 85.22px;
+  width: 201.84px;
+  height: 143.21px;
+  transform: rotate(14deg);
+  pointer-events: none;
+}
+.phentermine-new-sticker img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.product-modal-title--amphetamine {
+  left: 521.27px;
+  top: 479.04px;
+}
+
+.product-modal-subtitle--amphetamine {
+  left: 521.27px;
+  top: 530.04px;
+}
+
+.product-modal-desc--amphetamine {
+  left: 102.27px;
+  top: 574.03px;
+  transform: none;
+}
+
+.product-modal-btn--amphetamine-buy,
+.product-modal-btn--amphetamine-cancel {
+  top: 750.03px;
+}
+.product-modal-btn--amphetamine-buy {
+  left: 101.77px;
+}
+.product-modal-btn--amphetamine-cancel {
+  left: 526.27px;
+}
+
+/* ---------- 오른쪽 사이드바: 리뷰 / 오늘의 추천 / 무료배송 프로모 ---------- */
+.amph-reviews-bg {
+  position: absolute;
+  left: 983px;
+  top: 82.75px;
+  width: 304.03px;
+  height: 388.05px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.amph-reviews-head {
+  position: absolute;
+  left: 983px;
+  top: 82.75px;
+  width: 304.03px;
+  height: 32.5px;
+  background: var(--card-green);
+}
+
+.amph-rating {
+  position: absolute;
+  left: 988px;
+  top: 86px;
+  width: 242px;
+  height: 26px;
+  margin: 0;
+  font-family: var(--font-futura-book);
+  font-size: 20px;
+  color: #000;
+  white-space: nowrap;
+}
+
+.amph-review {
+  position: absolute;
+  left: 983px;
+  width: 304px;
+  height: 69px;
+}
+.amph-review--1 { top: 115.25px; }
+.amph-review--2 { top: 184.25px; }
+.amph-review--3 { top: 253.65px; }
+.amph-review--4 { top: 322.65px; }
+.amph-review--5 { top: 392.04px; }
+
+.amph-review-user {
+  position: absolute;
+  left: 12px;
+  top: 20.29px;
+  margin: 0;
+  font-family: var(--font-futura-medium);
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+}
+.amph-review-stars {
+  position: absolute;
+  left: 104px;
+  top: 20.29px;
+  margin: 0;
+  font-family: var(--font-futura-medium);
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+}
+.amph-review-text {
+  position: absolute;
+  left: 12px;
+  top: 40.29px;
+  margin: 0;
+  font-family: var(--font-futura-book);
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.amph-best-sticker {
+  position: absolute;
+  z-index: 2;
+  left: 851px;
+  top: 396.31px;
+  width: 145.03px;
+  height: 146.44px;
+  transform: rotate(-12.93deg);
+  pointer-events: none;
+}
+.amph-best-sticker img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.amph-recommend {
+  position: absolute;
+  left: 983px;
+  top: 481px;
+  width: 304px;
+  height: 164px;
+  background: #d6ff7d;
+  border: 1px solid #000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.amph-recommend-arrow {
+  position: absolute;
+  left: 16.79px;
+  top: 63.99px;
+  width: 162.75px;
+  height: 66.72px;
+  pointer-events: none;
+}
+.amph-recommend-arrow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.amph-recommend-label {
+  position: absolute;
+  left: 16.79px;
+  top: 15.46px;
+  width: 127px;
+  margin: 0;
+  font-family: var(--font-futura-bold);
+  font-size: 24px;
+  line-height: 26px;
+  color: #000;
+}
+
+.amph-recommend-photo {
+  position: absolute;
+  left: 190px;
+  top: 45px;
+  width: 104px;
+  height: 104px;
+  background: linear-gradient(to bottom, #fff, #ff1fac);
+  border: 0.5px solid #000;
+  overflow: hidden;
+}
+.amph-recommend-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.amph-recommend-name {
+  position: absolute;
+  left: 23.66px;
+  top: 81.85px;
+  width: 120px;
+  margin: 0;
+  font-family: var(--font-futura-medium);
+  font-size: 24px;
+  color: #000;
+  white-space: nowrap;
+}
+
+.amph-click-scribble {
+  position: absolute;
+  left: 1211.38px;
+  top: 514.41px;
+  width: 67.83px;
+  height: 50.58px;
+  transform: rotate(2.06deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.amph-click-scribble img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.amph-click-scribble span {
+  position: relative;
+  font-family: var(--font-futura-medium);
+  font-size: 15px;
+  color: #000;
+}
+
+.amph-shipping {
+  position: absolute;
+  left: 983px;
+  top: 675px;
+  width: 304px;
+  height: 126px;
+  background: #90ff7d;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+.amph-shipping-badge {
+  position: absolute;
+  left: 12.93px;
+  top: 5.03px;
+  width: 40px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff12a7;
+  font-family: var(--font-futura-book);
+  font-size: 13px;
+  color: #fff;
+}
+
+.amph-shipping-title {
+  position: absolute;
+  left: 11.79px;
+  top: 22.03px;
+  margin: 0;
+  font-family: var(--font-futura-demi);
+  font-size: 24px;
+  color: #000;
+  white-space: nowrap;
+}
+
+.amph-shipping-sub {
+  position: absolute;
+  left: 12.93px;
+  top: 57.03px;
+  margin: 0;
+  font-family: var(--font-futura-medium);
+  font-size: 18px;
+  line-height: normal;
+  color: #000;
+}
+
+.amph-shipping-photo {
+  position: absolute;
+  left: 191.67px;
+  top: 3.82px;
+  width: 101px;
+  height: 118.36px;
+}
+.amph-shipping-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ---------- 인트라넷 접속 안내 팝업 ---------- */
 .intranet-modal {
   position: fixed;
@@ -536,21 +1085,21 @@ body {
 
 .intranet-modal-box {
   position: relative;
-  width: 793.1px;
-  height: 247.1px;
+  width: 882px;
+  height: 266px;
   background: rgba(0, 0, 0, 0.7);
 }
 
 .intranet-modal-text {
   position: absolute;
   left: 50%;
-  top: 78.4px;
+  top: 78px;
   transform: translateX(-50%);
   margin: 0;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 25.2px;
-  line-height: 21px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-align: center;
   white-space: nowrap;
@@ -558,9 +1107,9 @@ body {
 
 .intranet-modal-btn {
   position: absolute;
-  top: 162.155px;
-  width: 127.4px;
-  height: 35px;
+  top: 193px;
+  width: 182px;
+  height: 50px;
   box-sizing: border-box;
   background: #1b1b1b;
   border: none;
@@ -569,12 +1118,115 @@ body {
   justify-content: center;
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 22.4px;
-  line-height: 21px;
+  font-size: 30px;
+  line-height: 30px;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
-.intranet-modal-btn--yes { left: 199.15px; }
-.intranet-modal-btn--no { left: 466.55px; }
+.intranet-modal-btn--yes { left: 209px; }
+.intranet-modal-btn--no { left: 491px; }
+
+/* ---------- 구매 완료 팝업 ---------- */
+.purchase-complete-overlay {
+  position: fixed;
+  z-index: 10001;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+}
+
+.purchase-complete-overlay.is-open {
+  display: flex;
+  animation: purchase-complete-backdrop-in 300ms ease-out forwards;
+}
+
+.purchase-complete-overlay.is-closing {
+  animation: purchase-complete-backdrop-out 260ms ease-in forwards;
+}
+
+@keyframes purchase-complete-backdrop-in {
+  from { background: rgba(0, 0, 0, 0); }
+  to { background: rgba(0, 0, 0, 0.5); }
+}
+@keyframes purchase-complete-backdrop-out {
+  from { background: rgba(0, 0, 0, 0.5); }
+  to { background: rgba(0, 0, 0, 0); }
+}
+
+.purchase-complete-box {
+  position: relative;
+  width: 474px;
+  height: 356px;
+  background: linear-gradient(to top, #fff, #d6ff7d);
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+/* 팝업이 아래에서 위로 올라오며 나타나고, 닫힐 땐 다시 아래로 내려가며 사라짐 */
+.purchase-complete-overlay.is-open .purchase-complete-box {
+  animation: purchase-complete-box-in 380ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.purchase-complete-overlay.is-closing .purchase-complete-box {
+  animation: purchase-complete-box-out 240ms ease-in forwards;
+}
+
+@keyframes purchase-complete-box-in {
+  from { opacity: 0; transform: translateY(70px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes purchase-complete-box-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(70px); }
+}
+
+.purchase-complete-title {
+  position: absolute;
+  left: 50%;
+  top: 43.41px;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: var(--font-futura-demi);
+  font-size: 28px;
+  line-height: 45px;
+  color: #ff12a7;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.purchase-complete-photo {
+  position: absolute;
+  left: 166.73px;
+  top: 227.99px;
+  width: 142.8px;
+  height: 115.39px;
+}
+
+.purchase-complete-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.purchase-complete-desc {
+  position: absolute;
+  left: 50%;
+  top: 144.95px;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 485.81px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+  text-align: center;
+}
+
+.purchase-complete-desc p {
+  margin: 0;
+}

@@ -48,6 +48,11 @@
 
     </div>
 
+    <audio id="correctAudio" src="audio/correct.mp3" preload="auto"></audio>
+
     <script src="scale.js"></script>
+    <script>
+      document.getElementById('correctAudio').play().catch(() => {});
+    </script>
   </body>
 </html>
