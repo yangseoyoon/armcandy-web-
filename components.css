@@ -314,7 +314,7 @@ body {
 .component-object {
   position: absolute;
   z-index: 3;
-  background: #0f7;
+  background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
